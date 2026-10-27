@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0c0a12;
@@ -32,14 +32,15 @@
   --ink-muted: #5d5770;
   --radius: 16px;
   --wrap: 1100px;
-  --en: "Anton", "Noto Sans JP", sans-serif;
+  --en: "Anton", "Zen Kaku Gothic New", sans-serif;
+  --jp: "Dela Gothic One", "Zen Kaku Gothic New", sans-serif;
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 body {
   margin: 0; background: var(--bg) var(--grain); color: var(--text);
-  font-family: "Noto Sans JP", system-ui, sans-serif; line-height: 1.85; letter-spacing: .02em;
+  font-family: "Zen Kaku Gothic New", system-ui, sans-serif; font-feature-settings: "palt"; letter-spacing: .04em; line-height: 1.85; letter-spacing: .02em;
   -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 img, svg { display: block; max-width: 100%; }
@@ -82,7 +83,7 @@ a { color: inherit; }
 .light .btn.ghost { color: var(--ink); border-color: var(--ink); }
 
 /* stickers */
-.sticker { position: absolute; z-index: 2; display: inline-block; padding: 8px 16px; border-radius: 999px; font: 700 14px "Noto Sans JP", sans-serif; color: var(--ink); background: var(--mint); transform: rotate(-8deg); box-shadow: 3px 3px 0 rgba(0,0,0,.35); white-space: nowrap; }
+.sticker { position: absolute; z-index: 2; display: inline-block; padding: 8px 16px; border-radius: 999px; font: 700 14px "Zen Kaku Gothic New", sans-serif; color: var(--ink); background: var(--mint); transform: rotate(-8deg); box-shadow: 3px 3px 0 rgba(0,0,0,.35); white-space: nowrap; }
 .sticker.pink { background: var(--pink); color: #fff; transform: rotate(6deg); }
 .sticker.vio { background: var(--vio); color: #fff; transform: rotate(-4deg); }
 .wobble { animation: wobble 4s ease-in-out infinite; }
@@ -195,13 +196,6 @@ section { padding: 100px 0; position: relative; }
 .ft nav { display: flex; gap: 18px; flex-wrap: wrap; }
 .ft a { text-decoration: none; }
 
-/* spinning badge (like a record) */
-.badge { position: fixed; right: 18px; bottom: 18px; z-index: 30; width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center; text-decoration: none; background: radial-gradient(circle, #1b1530 0 34%, #0c0a12 35% 100%); box-shadow: 0 6px 24px rgba(0,0,0,.45), 0 0 0 2px rgba(155,107,255,.5); transition: transform .2s; }
-.badge:hover { transform: scale(1.06); }
-.badge svg.ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 12s linear infinite; }
-.badge svg.ring text { font: 400 11.5px var(--en); letter-spacing: 3.2px; fill: var(--text); }
-.badge .core { width: 40px; height: 40px; border-radius: 50%; background: var(--vio); display: grid; place-items: center; box-shadow: 0 0 0 4px rgba(255,95,174,.5); }
-.badge .core img { width: 22px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* hero motion */
@@ -283,7 +277,7 @@ section { padding: 100px 0; position: relative; }
 .pm-tile, .pm-card { background: #1a1528; border-radius: 12px; padding: 10px 12px; }
 .pm-tile small, .pm-card small { display: block; font-size: 10px; color: var(--muted); }
 .pm-tile b { font: 400 24px var(--en); color: var(--vio2); }
-.pm-tile b i { font: 700 11px "Noto Sans JP", sans-serif; font-style: normal; margin-left: 3px; color: var(--muted); }
+.pm-tile b i { font: 700 11px "Zen Kaku Gothic New", sans-serif; font-style: normal; margin-left: 3px; color: var(--muted); }
 .pm-card { margin-top: 8px; }
 .pm-card b { font-size: 13px; }
 .pm-thx { border: 1px solid rgba(255,95,174,.5); animation: pop 5s ease-in-out infinite; }
@@ -302,6 +296,17 @@ section { padding: 100px 0; position: relative; }
 @media (prefers-reduced-motion: reduce) {
   .phone-mock, .pm-punch, .pm-thx { animation: none !important; }
 }
+
+/* display type */
+.hero h1, .sec-hd h2, .card h3, .cycle b, .fact b, .sub, .feat b, .pm-punch, .flow b { font-family: var(--jp); font-weight: 400; letter-spacing: .03em; }
+.hero h1 { line-height: 1.35; }
+.sec-hd h2 { line-height: 1.5; }
+.hl { font-family: var(--jp); }
+
+/* no copying */
+body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea { -webkit-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; }
 
 /* reveal */
 .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s, transform .7s; }
@@ -338,15 +343,12 @@ section { padding: 100px 0; position: relative; }
   .news li { grid-template-columns: 1fr; gap: 4px; }
   .news .cat { justify-self: start; padding: 2px 10px; }
   .scroll { display: none; }
-  .badge { width: 84px; height: 84px; right: 12px; bottom: 12px; }
-  .badge svg.ring text { font-size: 10px; letter-spacing: 2.4px; }
-  .badge .core { width: 32px; height: 32px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .rv { opacity: 1; transform: none; transition: none; }
   .up { opacity: 1; transform: none; animation: none; }
-  .ill *, .rings circle, .hero-logo img, .scroll i, .badge svg.ring, .wobble { animation: none !important; }
+  .ill *, .rings circle, .hero-logo img, .scroll i, .wobble { animation: none !important; }
   .phone .w { opacity: 1; }
   .line path:first-child { stroke-dashoffset: 0; }
 }
@@ -362,6 +364,7 @@ section { padding: 100px 0; position: relative; }
     </a>
     <button class="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="nav">MENU</button>
     <nav class="nav" id="nav">
+      <a href="#team">私たちについて</a>
       <a href="#business">事業内容</a>
       <a href="#strength">選ばれる理由</a>
       <a href="#recruit">採用情報</a>
@@ -406,7 +409,7 @@ section { padding: 100px 0; position: relative; }
       <div class="sec-hd rv">
         <p class="en">Concept</p>
         <h2>育てる。送り出す。振り返る。<br>そして、広げる。</h2>
-        <p>Themis（テーミス）は、人を育てることから始まる会社です。現場の実績をもとに振り返り、一人ひとりの成長を、取引先の成果と次の仕事につなげます。</p>
+        <p>Themis（テーミス）は、人を育てることから始まる会社です。スタッフが育てば、お店の売上が上がる。売上が上がれば、新しい仕事がまた増える。このめぐりを、現場の実績とフィードバックで回していきます。</p>
       </div>
       <ol class="cycle">
         <li class="rv" style="--d:0s"><em>01</em><b>育てる</b><span>先輩と1対1の研修で、現場の力をつける</span></li>
@@ -417,6 +420,38 @@ section { padding: 100px 0; position: relative; }
     </div>
   </section>
 
+
+  <section id="team" class="light">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <p class="en">Team</p>
+        <h2>みんなで、会社をつくる。</h2>
+        <p>Themisは、現場に人を送るだけの会社ではありません。お客さまと向き合う営業も、スタッフや現場の管理も、案件も、自分たちの手で持っています。だからこそ、一人ひとりの声で、会社をいっしょにつくっていけます。</p>
+      </div>
+      <div class="grid g4">
+        <div class="card rv" style="--d:0s">
+          <span class="num">01</span>
+          <h3>お客さまと、向き合う</h3>
+          <p>店頭やイベントで、お客さまと直接話す対面の営業。顔を合わせて信頼をつくる力を、いちばん大切にしています。</p>
+        </div>
+        <div class="card rv" style="--d:.1s">
+          <span class="num">02</span>
+          <h3>管理まで、自分たちで</h3>
+          <p>シフト・勤怠・実績の管理も自社で行います。経験を積めば、現場をまとめる側にも挑戦できます。</p>
+        </div>
+        <div class="card rv" style="--d:.2s">
+          <span class="num">03</span>
+          <h3>案件を、自社で持つ</h3>
+          <p>自社で案件を持っているから、働く場所を自分たちで選び、広げていけます。</p>
+        </div>
+        <div class="card rv" style="--d:.3s">
+          <span class="num">04</span>
+          <h3>会社を、いっしょに</h3>
+          <p>働き方もしくみも、現場の声から決めていきます。スタッフ一人ひとりが、会社をつくる仲間です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="business" class="violet">
     <div class="wrap">
@@ -616,8 +651,8 @@ section { padding: 100px 0; position: relative; }
         <h2>お知らせ</h2>
       </div>
       <ul class="news rv">
+        <li><time>2026.11</time><span class="cat">アプリ</span><span>スタッフ専用アプリ「Themis Portal」の配信を開始しました。</span></li>
         <li><time>2026.10</time><span class="cat">お知らせ</span><span>ホームページをリニューアルしました。</span></li>
-        <li><time>2026.10</time><span class="cat">アプリ</span><span>スタッフ専用アプリ「Themis Portal」の配信を開始しました。</span></li>
         <li><time>2026.06</time><span class="cat">会社</span><span>株式会社Themisを設立しました。</span></li>
       </ul>
     </div>
@@ -685,12 +720,11 @@ section { padding: 100px 0; position: relative; }
   </div>
 </footer>
 
-<a class="badge" href="#contact" aria-label="お問い合わせ・応募へ">
-  <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="badge-c" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs><text><textPath href="#badge-c">JOIN US • CONTACT • JOIN US • CONTACT •</textPath></text></svg>
-  <span class="core"><img src="img/mark-w.svg" alt=""></span>
-</a>
-
 <script>
+// no copying outside the form
+const inForm = e => e.target.closest && e.target.closest("input, textarea");
+["copy", "cut", "contextmenu", "selectstart", "dragstart"].forEach(k => document.addEventListener(k, e => { if (!inForm(e)) e.preventDefault(); }));
+
 const API = "https://script.google.com/macros/s/AKfycbzQevDDT9kEQz9kNPEQ4fDfVZ0t_ASLRhpAZE0Jm5j2QO-z5j93_i_thEJrbqaAFvh3/exec";
 
 // mobile menu

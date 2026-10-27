@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社Themis｜携帯販売の営業代行・人材育成（関東・東北）</title>
+<meta name="description" content="株式会社Themisは、栃木県佐野市を拠点に、関東・東北の携帯キャリア店舗へ営業スタッフを送る営業代行の会社です。未経験から育てる研修制度で、働く人と取引先の両方の成長をつくります。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="株式会社Themis｜成長が、次の可能性を作る。">
+<meta property="og:description" content="関東・東北の携帯キャリア店舗へ、育てた営業スタッフを。働く仲間と、案件・協業のパートナーを募集しています。">
+<meta property="og:image" content="https://themis-inc.com/img/og.png">
+<meta property="og:url" content="https://themis-inc.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0b0c;
+  --bg2: #141416;
+  --line: #2a2a2e;
+  --text: #f2f2f0;
+  --muted: #a6a6a2;
+  --gold: #c9ab6e;
+  --gold2: #e4cf9f;
+  --light: #f6f4ef;
+  --ink: #1b1b1d;
+  --ink-muted: #5e5e5a;
+  --radius: 14px;
+  --wrap: 1080px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: "Noto Sans JP", system-ui, sans-serif; line-height: 1.85; letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+.serif { font-family: "Noto Serif JP", serif; }
+
+/* header */
+.hd { position: sticky; top: 0; z-index: 20; background: rgba(11,11,12,.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.hd .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand img { height: 44px; width: auto; }
+.brand span { font-size: 13px; color: var(--muted); letter-spacing: .12em; }
+.nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
+.nav a { text-decoration: none; color: var(--muted); transition: color .2s; }
+.nav a:hover { color: var(--text); }
+.nav .cta { color: var(--bg); background: var(--gold); padding: 8px 16px; border-radius: 999px; font-weight: 700; }
+.nav .cta:hover { color: var(--bg); background: var(--gold2); }
+.menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--text); border-radius: 10px; width: 44px; height: 40px; font-size: 13px; }
+
+/* hero */
+.hero { position: relative; overflow: hidden; padding: 72px 0 88px; border-bottom: 1px solid var(--line); }
+.hero::before {
+  content: ""; position: absolute; inset: -20% -10% auto auto; width: 70vw; height: 70vw; max-width: 760px; max-height: 760px;
+  background: radial-gradient(circle, rgba(201,171,110,.16), transparent 62%); pointer-events: none;
+}
+.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 40px; position: relative; }
+.eyebrow { color: var(--gold); font-size: 13px; letter-spacing: .24em; margin: 0 0 14px; }
+.hero h1 { font-size: clamp(34px, 5.4vw, 60px); line-height: 1.35; margin: 0 0 22px; font-weight: 700; }
+.hero p.lead { color: var(--muted); font-size: 16px; margin: 0 0 32px; max-width: 34em; }
+.hero-logo { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: #000; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 14px 22px; border-radius: 999px; font-weight: 700; font-size: 15px; border: 1px solid var(--line); transition: transform .15s, background .2s; }
+.btn:hover { transform: translateY(-1px); }
+.btn.gold { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.btn.gold:hover { background: var(--gold2); }
+.btn.ghost { color: var(--text); }
+.btn.ghost:hover { background: var(--bg2); }
+
+/* key facts */
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+.fact { padding: 26px 20px; text-align: center; border-right: 1px solid var(--line); }
+.fact:last-child { border-right: 0; }
+.fact b { display: block; font-family: "Noto Serif JP", serif; font-size: 22px; color: var(--gold2); letter-spacing: .04em; }
+.fact span { font-size: 13px; color: var(--muted); }
+
+/* sections */
+section { padding: 96px 0; }
+.sec-hd { margin-bottom: 44px; }
+.sec-hd .en { color: var(--gold); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; margin: 0 0 8px; }
+.sec-hd h2 { font-family: "Noto Serif JP", serif; font-size: clamp(26px, 3.6vw, 38px); line-height: 1.45; margin: 0 0 14px; }
+.sec-hd p { color: var(--muted); margin: 0; max-width: 40em; }
+.light { background: var(--light); color: var(--ink); }
+.light .sec-hd p, .light .muted { color: var(--ink-muted); }
+.light .card { background: #fff; border-color: #e6e2d8; }
+.light .card p { color: var(--ink-muted); }
+
+.grid { display: grid; gap: 18px; }
+.g4 { grid-template-columns: repeat(4, 1fr); }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+.card { background: var(--bg2); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; }
+.card h3 { font-size: 18px; margin: 14px 0 8px; line-height: 1.5; }
+.card p { color: var(--muted); font-size: 14px; margin: 0; }
+.ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(201,171,110,.14); color: var(--gold); }
+.light .ico { background: #efe7d6; color: #8a6d33; }
+.ico svg { width: 24px; height: 24px; }
+.num { font-family: "Noto Serif JP", serif; color: var(--gold); font-size: 30px; line-height: 1; }
+
+/* recruit */
+.styles .card { padding: 30px 28px; }
+.tag { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; color: var(--gold); margin-bottom: 6px; }
+.light .tag { color: #8a6d33; }
+.checks { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; font-size: 14px; }
+.checks li { padding-left: 26px; position: relative; }
+.checks li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 12px; height: 7px; border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(-45deg); }
+.light .checks li::before { border-color: #8a6d33; }
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 44px; counter-reset: step; }
+.flow li { list-style: none; position: relative; padding: 0 14px; text-align: center; }
+.flow li::before { counter-increment: step; content: counter(step); display: grid; place-items: center; width: 46px; height: 46px; margin: 0 auto 12px; border-radius: 50%; background: var(--ink); color: var(--gold2); font-family: "Noto Serif JP", serif; font-size: 18px; position: relative; z-index: 1; }
+.flow li::after { content: ""; position: absolute; top: 23px; left: 50%; width: 100%; height: 1px; background: #d8d2c3; }
+.flow li:last-child::after { display: none; }
+.flow b { display: block; font-size: 16px; }
+.flow span { font-size: 13px; color: var(--ink-muted); }
+.flow-wrap { padding: 0; margin: 0; }
+.center { text-align: center; margin-top: 40px; }
+
+/* company */
+.company { width: 100%; border-collapse: collapse; font-size: 15px; }
+.company th, .company td { text-align: left; padding: 18px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.company th { width: 9em; color: var(--muted); font-weight: 500; }
+
+/* contact */
+.form { background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 32px; max-width: 760px; }
+.kinds { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; border: 0; padding: 0; }
+.kinds legend { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.kinds label { cursor: pointer; }
+.kinds input { position: absolute; opacity: 0; pointer-events: none; }
+.kinds span { display: inline-block; padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; transition: all .15s; }
+.kinds input:checked + span { background: var(--gold); color: var(--bg); border-color: var(--gold); font-weight: 700; }
+.kinds input:focus-visible + span { outline: 2px solid var(--gold2); outline-offset: 2px; }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 13px; color: var(--muted); }
+.field label em { font-style: normal; color: var(--gold); font-size: 11px; margin-left: 6px; }
+.field input, .field textarea {
+  background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 10px;
+  padding: 13px 14px; font: inherit; font-size: 16px; width: 100%;
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--gold); }
+.field textarea { min-height: 140px; resize: vertical; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.send { margin-top: 22px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.send button { cursor: pointer; font: inherit; }
+.send button[disabled] { opacity: .6; cursor: wait; }
+.note { font-size: 13px; color: var(--muted); }
+.msg { margin-top: 18px; padding: 14px 16px; border-radius: 10px; font-size: 14px; display: none; }
+.msg.ok { display: block; background: rgba(120,190,140,.12); border: 1px solid rgba(120,190,140,.4); }
+.msg.ng { display: block; background: rgba(220,110,110,.12); border: 1px solid rgba(220,110,110,.4); }
+
+/* footer */
+.ft { border-top: 1px solid var(--line); padding: 40px 0; color: var(--muted); font-size: 13px; }
+.ft .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.ft img { height: 56px; width: auto; }
+.ft nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.ft a { text-decoration: none; }
+
+/* reveal */
+.rv { opacity: 0; transform: translateY(14px); transition: opacity .7s, transform .7s; }
+.rv.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+@media (max-width: 900px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero-logo { max-width: 360px; }
+  .g4 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: repeat(2, 1fr); }
+  .fact:nth-child(2) { border-right: 0; }
+  .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  .menu-btn { display: block; }
+  .nav { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px 20px 18px; }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .nav .cta { text-align: center; margin-top: 12px; border: 0; }
+  .brand span { display: none; }
+  section { padding: 72px 0; }
+  .hero { padding: 48px 0 64px; }
+  .g4, .g2 { grid-template-columns: 1fr; }
+  .fields { grid-template-columns: 1fr; }
+  .form { padding: 22px 18px; }
+  .flow { grid-template-columns: 1fr; gap: 18px; }
+  .flow li { display: grid; grid-template-columns: 46px 1fr; gap: 14px; text-align: left; align-items: center; padding: 0; }
+  .flow li::before { margin: 0; grid-row: span 2; }
+  .flow li::after { top: 46px; left: 23px; width: 1px; height: 18px; }
+  .company th { width: 7em; }
+}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="株式会社Themis トップへ">
+      <img src="img/logo-black.svg" alt="Themis">
+      <span>株式会社Themis</span>
+    </a>
+    <button class="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="nav">MENU</button>
+    <nav class="nav" id="nav">
+      <a href="#business">事業内容</a>
+      <a href="#strength">選ばれる理由</a>
+      <a href="#recruit">採用情報</a>
+      <a href="#company">会社概要</a>
+      <a class="cta" href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">TELECOM SALES &amp; TRAINING</p>
+        <h1 class="serif">成長が、<br>次の可能性を作る。</h1>
+        <p class="lead">株式会社Themisは、栃木を拠点に関東・東北の携帯キャリア店舗へ営業スタッフを送る、営業代行の会社です。人を集め、育て、現場へ。働く仲間と取引先、どちらの成長もつくります。</p>
+        <div class="btns">
+          <a class="btn gold" href="#recruit">働きたい方へ</a>
+          <a class="btn ghost" href="#business">案件・協業のご相談</a>
+        </div>
+      </div>
+      <div class="hero-logo"><img src="img/logo-black.svg" alt="Themis のロゴ"></div>
+    </div>
+  </section>
+
+  <div class="facts">
+    <div class="fact"><b>3キャリア</b><span>docomo・au・SoftBank</span></div>
+    <div class="fact"><b>関東・東北</b><span>栃木県佐野市が拠点</span></div>
+    <div class="fact"><b>月5回まで</b><span>1対1の研修</span></div>
+    <div class="fact"><b>週末だけOK</b><span>未経験から始められる</span></div>
+  </div>
+
+  <section id="business">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <p class="en">Business</p>
+        <h2>事業内容</h2>
+        <p>携帯キャリアの店舗・量販店・イベントでの販売を、育てたスタッフで支えます。短い期間や少ない人数のご相談も歓迎です。</p>
+      </div>
+      <div class="grid g4">
+        <div class="card rv">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
+          <h3>携帯販売の営業代行</h3>
+          <p>キャリアショップ・家電量販店の携帯売り場で、接客と契約の獲得を行います。</p>
+        </div>
+        <div class="card rv">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/><path d="M2 21h20"/></svg></div>
+          <h3>イベント・催事</h3>
+          <p>ショッピングモールなどのイベント・催事で、声かけから契約までを担当します。</p>
+        </div>
+        <div class="card rv">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 15.8a5 5 0 0 1 7 0"/><path d="M12 19.2h.01"/><path d="M1.8 9.2a14.5 14.5 0 0 1 20.4 0"/></svg></div>
+          <h3>光回線・電気・オプション</h3>
+          <p>インターネット回線や電気の契約、オプションなどの副商材もあわせてご提案します。</p>
+        </div>
+        <div class="card rv">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7.5" r="3.5"/><path d="M2.5 20.5c.6-3.6 3.3-6 6.5-6s5.9 2.4 6.5 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 6.5"/><path d="M18 14.8c2 .8 3.2 2.9 3.5 5.7"/></svg></div>
+          <h3>人材の育成</h3>
+          <p>未経験のスタッフも、研修で現場に出られる力をつけてから送り出します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="strength" class="light">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <p class="en">Strength</p>
+        <h2>Themisが選ばれる理由</h2>
+        <p>「人を送る」だけでなく、「育てて、見える形で送る」。それが私たちのやり方です。</p>
+      </div>
+      <div class="grid g3">
+        <div class="card rv">
+          <span class="num">01</span>
+          <h3>育ててから、現場へ</h3>
+          <p>研修は1回60分、先輩と1対1。月5回まで受けられ、教える側も受ける側も「内容と評価」を残すので、身についたことが見えます。</p>
+        </div>
+        <div class="card rv">
+          <span class="num">02</span>
+          <h3>動きが、見える</h3>
+          <p>勤怠・シフト・稼働実績は、自社の専用アプリで毎日記録。欠勤や遅れもすぐに共有され、取引先への報告が早く正確です。</p>
+        </div>
+        <div class="card rv">
+          <span class="num">03</span>
+          <h3>小さく、早く</h3>
+          <p>関東・東北で、短い期間や少ない人数からご相談いただけます。急な人手不足にも、まずはお声がけください。</p>
+        </div>
+      </div>
+      <div class="center rv"><a class="btn gold" href="#contact" data-kind="案件・協業">案件・協業のご相談</a></div>
+    </div>
+  </section>
+
+  <section id="recruit">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <p class="en">Recruit</p>
+        <h2>未経験から、携帯販売のプロへ。</h2>
+        <p>学歴や職歴より、人と向き合えるかどうか。楽しく働きながら成長したい仲間を募集しています。</p>
+      </div>
+      <div class="grid g2 styles">
+        <div class="card rv">
+          <span class="tag">週末スタッフ</span>
+          <h3>土日を中心に、シフト希望を出して働く</h3>
+          <p>平日はほかの仕事や学校、週末は携帯販売。副業として始める人も多い働き方です。</p>
+          <ul class="checks"><li>週末だけOK</li><li>毎月のシフト希望で働く日を決められる</li><li>未経験は研修からスタート</li></ul>
+        </div>
+        <div class="card rv">
+          <span class="tag">常勤スタッフ</span>
+          <h3>決まった店舗で、しっかり稼ぐ</h3>
+          <p>店舗が決めるシフトで、腰をすえて働きます。経験を積んで、成果に応じて報酬アップを目指せます。</p>
+          <ul class="checks"><li>経験者歓迎（年数は問いません）</li><li>成長に応じて報酬アップ</li><li>キャリアアップ・独立の相談もできる</li></ul>
+        </div>
+      </div>
+      <div class="grid g3" style="margin-top:18px">
+        <div class="card rv">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 12 3l9 3.5-9 3.5z"/><path d="M7 8.3v5.2c0 1.6 2.2 3 5 3s5-1.4 5-3V8.3"/><path d="M21 6.5v6"/></svg></div>
+          <h3>研修制度</h3>
+          <p>業界経験のある先輩と、オンラインで1対1。断られたあとの一言や、プランの説明のしかたまで、現場で使えることを教えます。</p>
+        </div>
+        <div class="card rv">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M9.5 8h5M9.5 11.5h5M9.5 15h3"/></svg></div>
+          <h3>専用アプリで、かんたん</h3>
+          <p>打刻・シフト・毎月の請求書まで、スマホのアプリでまとめて。ありがとうを送り合えるポイントのしくみもあります。</p>
+        </div>
+        <div class="card rv">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+          <h3>キャリアアップ・独立支援</h3>
+          <p>新しい事業の立ち上げや独立、別の業種への挑戦も、事業計画・営業のノウハウ・人脈づくりから応援します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" aria-label="応募から働くまでの流れ">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <p class="en">Flow</p>
+        <h2>応募から、現場デビューまで</h2>
+        <p class="muted">働き方の契約は業務委託です。わからないことは、面談で何でも聞いてください。</p>
+      </div>
+      <ol class="flow flow-wrap rv">
+        <li><b>応募</b><span>下のフォームから送るだけ</span></li>
+        <li><b>面談</b><span>働き方・エリア・日数を相談</span></li>
+        <li><b>研修</b><span>先輩と1対1で基本を身につける</span></li>
+        <li><b>現場デビュー</b><span>研修はその後も続けられる</span></li>
+      </ol>
+      <div class="center rv"><a class="btn gold" href="#contact" data-kind="働きたい">応募・質問する</a></div>
+    </div>
+  </section>
+
+  <section id="company">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <p class="en">Company</p>
+        <h2>会社概要</h2>
+      </div>
+      <table class="company rv">
+        <tr><th>会社名</th><td>株式会社Themis（テミス）</td></tr>
+        <tr><th>代表取締役</th><td>出井 張貴</td></tr>
+        <tr><th>設立</th><td>2026年6月</td></tr>
+        <tr><th>資本金</th><td>1,000,000円</td></tr>
+        <tr><th>本店所在地</th><td>栃木県佐野市田沼町1220-2</td></tr>
+        <tr><th>事業内容</th><td>通信事業（携帯電話・インターネット回線の販売支援、イベント運営、人材育成）</td></tr>
+        <tr><th>対応エリア</th><td>関東・東北</td></tr>
+        <tr><th>メール</th><td><a href="mailto:info@the-mis.co.jp">info@the-mis.co.jp</a></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <p class="en">Contact</p>
+        <h2>お問い合わせ・応募</h2>
+        <p>働きたい方も、案件・協業をご相談の会社さまも、こちらからお送りください。担当者からご連絡します。</p>
+      </div>
+      <form class="form rv" id="form" novalidate>
+        <fieldset class="kinds">
+          <legend>ご用件</legend>
+          <label><input type="radio" name="kind" value="働きたい" checked><span>働きたい</span></label>
+          <label><input type="radio" name="kind" value="案件・協業"><span>案件・協業のご相談</span></label>
+          <label><input type="radio" name="kind" value="その他"><span>その他</span></label>
+        </fieldset>
+        <div class="fields">
+          <div class="field"><label for="f-name">お名前<em>必須</em></label><input id="f-name" name="name" autocomplete="name" required maxlength="60"></div>
+          <div class="field"><label for="f-company">会社名</label><input id="f-company" name="company" autocomplete="organization" maxlength="80"></div>
+          <div class="field"><label for="f-mail">メールアドレス<em>メールか電話のどちらか</em></label><input id="f-mail" name="mail" type="email" autocomplete="email" maxlength="120"></div>
+          <div class="field"><label for="f-tel">電話番号</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" maxlength="30"></div>
+          <div class="field full"><label for="f-area">お住まい・ご希望のエリア</label><input id="f-area" name="area" placeholder="例：栃木県佐野市／宇都宮周辺" maxlength="60"></div>
+          <div class="field full"><label for="f-text">内容</label><textarea id="f-text" name="text" maxlength="2000" placeholder="働ける曜日や経験、ご相談の内容など、自由にお書きください"></textarea></div>
+          <div class="hp" aria-hidden="true"><label>website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        </div>
+        <div class="send">
+          <button class="btn gold" type="submit">送信する</button>
+          <span class="note">いただいた情報は、ご連絡のためだけに使います。</span>
+        </div>
+        <div class="msg" id="msg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <img src="img/logo-black.svg" alt="Themis">
+    <nav>
+      <a href="#business">事業内容</a><a href="#recruit">採用情報</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a>
+    </nav>
+    <span>© 2026 株式会社Themis</span>
+  </div>
+</footer>
+
+<script>
+const API = "https://script.google.com/macros/s/AKfycbzQevDDT9kEQz9kNPEQ4fDfVZ0t_ASLRhpAZE0Jm5j2QO-z5j93_i_thEJrbqaAFvh3/exec";
+
+// mobile menu
+const btn = document.querySelector(".menu-btn"), nav = document.getElementById("nav");
+btn.addEventListener("click", () => { const o = nav.classList.toggle("open"); btn.setAttribute("aria-expanded", o); });
+nav.addEventListener("click", e => { if (e.target.tagName === "A") { nav.classList.remove("open"); btn.setAttribute("aria-expanded", false); } });
+
+// buttons that lead to the form choose its 用件
+document.querySelectorAll("[data-kind]").forEach(a => a.addEventListener("click", () => {
+  const r = document.querySelector(`input[name=kind][value="${a.dataset.kind}"]`);
+  if (r) r.checked = true;
+}));
+
+// fade in on scroll
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}), { rootMargin: "0px 0px -8% 0px" }) : null;
+document.querySelectorAll(".rv").forEach(el => io ? io.observe(el) : el.classList.add("in"));
+
+// form
+const form = document.getElementById("form"), msg = document.getElementById("msg");
+const show = (ok, text) => { msg.className = "msg " + (ok ? "ok" : "ng"); msg.textContent = text; };
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = Object.fromEntries(new FormData(form).entries());
+  if (!f.name.trim()) { show(false, "お名前を入れてください。"); form.name.focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.mail.trim()) && !/^[\d\-+() ]{9,}$/.test(f.tel.trim())) {
+    show(false, "メールアドレスか電話番号を入れてください。"); form.mail.focus(); return;
+  }
+  const b = form.querySelector("button[type=submit]");
+  b.disabled = true; b.textContent = "送信しています…";
+  try {
+    const r = await fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ fn: "api_siteContact", args: [f] }) });
+    const j = await r.json();
+    if (!j.ok) throw new Error(j.error);
+    form.reset();
+    show(true, "送信しました。ありがとうございます。担当者から、あらためてご連絡します。");
+  } catch (err) {
+    show(false, (err && err.message && !/fetch|network|JSON/i.test(err.message) ? err.message : "送信できませんでした。") + " うまくいかないときは info@the-mis.co.jp までメールでお送りください。");
+  } finally {
+    b.disabled = false; b.textContent = "送信する";
+  }
+});
+</script>
+</body>
+</html>

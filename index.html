@@ -435,9 +435,9 @@ p, .cycle span, .feat span, .flow span, .ladder span, .checks li, .news li span 
 /* PC: heading on the left, intro on the right */
 @media (min-width: 901px) {
   .sec-hd { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 64px; align-items: end; }
-  .sec-hd .en, .sec-hd h2 { grid-column: 1; }
-  .sec-hd h2 { margin-bottom: 0; }
-  .sec-hd p { grid-column: 2; grid-row: 1 / span 2; align-self: end; }
+  .sec-hd .en { grid-column: 1; grid-row: 1; }
+  .sec-hd h2 { grid-column: 1; grid-row: 2; margin-bottom: 0; }
+  .sec-hd p:not(.en) { grid-column: 2; grid-row: 1 / span 2; align-self: end; text-wrap: wrap; padding-bottom: .3em; }
   #app .sec-hd { display: block; }
   #app .sec-hd h2 { margin-bottom: 14px; }
 }

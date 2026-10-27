@@ -402,7 +402,10 @@ p, .cycle span, .feat span, .flow span, .ladder span, .checks li, .news li span 
   .ladder li:nth-child(n) { margin-top: 0; }
 }
 @media (max-width: 560px) {
-  .ladder { grid-template-columns: 1fr; }
+  .ladder { gap: 10px; }
+  .ladder li { padding: 16px 14px; }
+  .ladder b { font-size: 19px; }
+  .ladder span { font-size: 13.5px; line-height: 1.75; }
 }
 @media (prefers-reduced-motion: reduce) {
   .sec-hd.rv h2 { clip-path: none; transition: none; }
@@ -455,10 +458,11 @@ img { -webkit-user-drag: none; }
   .g4, .g2 { grid-template-columns: 1fr; }
   .fields { grid-template-columns: 1fr; }
   .form { padding: 22px 18px; box-shadow: 6px 6px 0 rgba(255,95,174,.35); }
-  .flow { grid-template-columns: 1fr; gap: 18px; }
-  .flow li { display: grid; grid-template-columns: 52px 1fr; gap: 14px; text-align: left; align-items: center; padding: 0; }
-  .flow li::before { margin: 0; grid-row: span 2; }
-  .flow li::after { top: 52px; left: 25px; width: 2px; height: 18px; background: #c9bdea; }
+  .flow { grid-template-columns: 1fr 1fr; gap: 24px 10px; }
+  .flow li { padding: 0 4px; }
+  .flow li::before { width: 44px; height: 44px; margin-bottom: 8px; font-size: 19px; }
+  .flow li::after { display: none; }
+  .flow span { font-size: 13px; display: block; line-height: 1.7; }
   .company th { width: 7em; }
   .cycle { grid-template-columns: 1fr 1fr; gap: 10px; }
   .cycle li { padding: 18px 14px; }

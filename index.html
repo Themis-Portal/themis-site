@@ -60,7 +60,12 @@ a { color: inherit; }
 .nav a:hover { color: var(--text); }
 .nav .cta { color: #fff; background: var(--vio); padding: 8px 18px; border-radius: 999px; font-weight: 700; box-shadow: 3px 3px 0 var(--pink); transition: transform .15s, box-shadow .15s; }
 .nav .cta:hover { color: #fff; transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--pink); }
-.menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--text); border-radius: 10px; width: 52px; height: 40px; font: 700 12px var(--en); letter-spacing: .1em; }
+.menu-btn { display: none; position: relative; background: none; border: 1px solid var(--line); border-radius: 10px; width: 44px; height: 40px; cursor: pointer; }
+.menu-btn i { position: absolute; left: 12px; right: 12px; height: 2px; border-radius: 2px; background: var(--text); transition: transform .25s, opacity .2s, top .25s; }
+.menu-btn i:nth-child(1) { top: 12px; } .menu-btn i:nth-child(2) { top: 19px; } .menu-btn i:nth-child(3) { top: 26px; }
+.menu-btn[aria-expanded="true"] i:nth-child(1) { top: 19px; transform: rotate(45deg); }
+.menu-btn[aria-expanded="true"] i:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] i:nth-child(3) { top: 19px; transform: rotate(-45deg); }
 
 /* hero */
 .hero { position: relative; overflow: hidden; padding: 80px 0 110px; }
@@ -509,7 +514,7 @@ img { -webkit-user-drag: none; }
       <img class="mk" src="img/mark-w.svg" alt="">
       <img class="wd" src="img/word-w.svg" alt="Themis">
     </a>
-    <button class="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="nav">MENU</button>
+    <button class="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
     <nav class="nav" id="nav">
       <a href="#team">私たちについて</a>
       <a href="#business">事業内容</a>

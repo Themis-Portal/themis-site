@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>株式会社Themis｜携帯販売の営業代行・人材育成（関東・東北）</title>
-<meta name="description" content="株式会社Themisは、栃木県佐野市を拠点に、関東・東北の携帯キャリア店舗へ営業スタッフを送る営業代行の会社です。未経験から育てる研修制度で、働く人と取引先の両方の成長をつくります。">
+<meta name="description" content="株式会社Themisは、関東・東北の携帯キャリア店舗へ営業スタッフを送る営業代行の会社です。未経験から育てる研修制度で、働く人と取引先の両方の成長をつくります。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="株式会社Themis｜成長が、次の可能性を作る。">
 <meta property="og:description" content="関東・東北の携帯キャリア店舗へ、育てた営業スタッフを。働く仲間と、案件・協業のパートナーを募集しています。">
@@ -263,6 +263,46 @@ section { padding: 100px 0; position: relative; }
 .news time { color: var(--ink-muted); font-family: var(--en); letter-spacing: .08em; font-size: 16px; }
 .news .cat { font-size: 11px; font-weight: 700; text-align: center; padding: 2px 0; border-radius: 999px; background: var(--vio); color: #fff; }
 
+/* app */
+.app-wrap { display: grid; grid-template-columns: 1.25fr .75fr; gap: 48px; align-items: center; }
+.feats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.feat { background: rgba(12,10,18,.55); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 18px 18px 16px; transition: transform .2s, box-shadow .2s; }
+.feat:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--pink); }
+.feat b { display: block; font-size: 15px; font-weight: 900; margin-bottom: 4px; }
+.feat b::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); margin-right: 8px; vertical-align: middle; }
+.feat span { font-size: 13px; color: #d4cbee; line-height: 1.7; }
+.phone-wrap { display: flex; flex-direction: column; align-items: center; }
+.phone-mock { width: 260px; border-radius: 38px; padding: 18px 16px 14px; background: #0c0a12; border: 8px solid #241c38; box-shadow: 0 30px 60px rgba(0,0,0,.5), 0 0 0 2px rgba(155,107,255,.5), 12px 12px 0 rgba(255,95,174,.45); transform: rotate(4deg); animation: tilt 6s ease-in-out infinite; }
+@keyframes tilt { 50% { transform: rotate(1deg) translateY(-8px); } }
+.pm-top { display: flex; align-items: center; gap: 8px; font: 400 14px var(--en); letter-spacing: .08em; }
+.pm-top img { height: 20px; }
+.pm-hello { margin: 14px 0 10px; font-size: 13px; color: var(--muted); }
+.pm-punch { text-align: center; font-weight: 900; font-size: 18px; padding: 16px 0; border-radius: 16px; background: linear-gradient(135deg, var(--vio), var(--pink)); color: #fff; animation: glowp 2.4s ease-in-out infinite; }
+@keyframes glowp { 50% { box-shadow: 0 0 0 6px rgba(155,107,255,.25), 0 0 26px rgba(255,95,174,.5); } }
+.pm-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.pm-tile, .pm-card { background: #1a1528; border-radius: 12px; padding: 10px 12px; }
+.pm-tile small, .pm-card small { display: block; font-size: 10px; color: var(--muted); }
+.pm-tile b { font: 400 24px var(--en); color: var(--vio2); }
+.pm-tile b i { font: 700 11px "Noto Sans JP", sans-serif; font-style: normal; margin-left: 3px; color: var(--muted); }
+.pm-card { margin-top: 8px; }
+.pm-card b { font-size: 13px; }
+.pm-thx { border: 1px solid rgba(255,95,174,.5); animation: pop 5s ease-in-out infinite; }
+@keyframes pop { 0%, 55% { opacity: 0; transform: translateY(10px) scale(.96); } 62%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+.pm-nav { display: flex; justify-content: space-around; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.pm-nav i { width: 18px; height: 18px; border-radius: 6px; background: #2b2540; }
+.pm-nav i.on { background: var(--vio); }
+.pm-note { font-size: 11px; color: #bdb3dc; margin: 22px 0 0; }
+@media (max-width: 900px) {
+  .app-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .feats { grid-template-columns: 1fr; }
+  .phone-mock { width: 240px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phone-mock, .pm-punch, .pm-thx { animation: none !important; }
+}
+
 /* reveal */
 .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s, transform .7s; }
 .rv.in { opacity: 1; transform: none; }
@@ -325,6 +365,7 @@ section { padding: 100px 0; position: relative; }
       <a href="#business">事業内容</a>
       <a href="#strength">選ばれる理由</a>
       <a href="#recruit">採用情報</a>
+      <a href="#app">アプリ</a>
       <a href="#company">会社概要</a>
       <a class="cta" href="#contact">お問い合わせ</a>
     </nav>
@@ -339,7 +380,7 @@ section { padding: 100px 0; position: relative; }
       <div class="hero-txt">
         <p class="eyebrow up" style="--d:.05s">TELECOM SALES &amp; TRAINING</p>
         <h1 class="serif"><span class="up" style="--d:.2s">成長が、</span><br><span class="up" style="--d:.4s">次の<span class="hl">可能性</span>を作る。</span></h1>
-        <p class="lead up" style="--d:.6s">株式会社Themisは、栃木を拠点に関東・東北の携帯キャリア店舗へ営業スタッフを送る、営業代行の会社です。人を集め、育て、現場へ。働く仲間と取引先、どちらの成長もつくります。</p>
+        <p class="lead up" style="--d:.6s">株式会社Themisは、関東・東北の携帯キャリア店舗へ営業スタッフを送る、営業代行の会社です。人を育て、現場へ。働く仲間と取引先、どちらの成長もつくります。</p>
         <div class="btns up" style="--d:.8s">
           <a class="btn gold" href="#recruit">働きたい方へ</a>
           <a class="btn ghost" href="#business">案件・協業のご相談</a>
@@ -348,8 +389,6 @@ section { padding: 100px 0; position: relative; }
       <div class="hero-logo up" style="--d:.3s">
         <svg class="rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="60"/></svg>
         <img src="img/logo-w.svg" alt="Themis のロゴ">
-        <span class="sticker wobble">未経験OK！</span>
-        <span class="sticker pink">週末だけでもOK</span>
       </div>
     </div>
     <a class="scroll" href="#concept" aria-label="下へ"><span>SCROLL</span><i></i></a>
@@ -357,22 +396,22 @@ section { padding: 100px 0; position: relative; }
 
   <div class="facts">
     <div class="fact rv"><b><span class="count" data-to="3">3</span>キャリア</b><span>docomo・au・SoftBank</span></div>
-    <div class="fact rv"><b>関東・東北</b><span>栃木県佐野市が拠点</span></div>
-    <div class="fact rv"><b>研修つき</b><span>先輩と1対1で学べる</span></div>
-    <div class="fact rv"><b>週末だけOK</b><span>未経験から始められる</span></div>
+    <div class="fact rv"><b>関東・東北</b><span>店舗・量販店・イベント</span></div>
+    <div class="fact rv"><b>研修制度</b><span>先輩と1対1で学べる</span></div>
+    <div class="fact rv"><b>週末だけでもOK</b><span>未経験から始められる</span></div>
   </div>
 
   <section id="concept" class="concept">
     <div class="wrap">
       <div class="sec-hd rv">
         <p class="en">Concept</p>
-        <h2>集めて、育てて、送り出す。<br>そして、広げる。</h2>
-        <p>Themis（テーミス）は、人を育てることから始まる会社です。一人ひとりの成長が、取引先の成果になり、次の仕事を生みます。</p>
+        <h2>育てる。送り出す。振り返る。<br>そして、広げる。</h2>
+        <p>Themis（テーミス）は、人を育てることから始まる会社です。現場の実績をもとに振り返り、一人ひとりの成長を、取引先の成果と次の仕事につなげます。</p>
       </div>
       <ol class="cycle">
-        <li class="rv" style="--d:0s"><em>01</em><b>集める</b><span>SNSや紹介で、一緒に働く仲間と出会う</span></li>
-        <li class="rv" style="--d:.15s"><em>02</em><b>育てる</b><span>先輩と1対1の研修で、現場の力をつける</span></li>
-        <li class="rv" style="--d:.3s"><em>03</em><b>送り出す</b><span>関東・東北の店舗やイベントで活躍する</span></li>
+        <li class="rv" style="--d:0s"><em>01</em><b>育てる</b><span>先輩と1対1の研修で、現場の力をつける</span></li>
+        <li class="rv" style="--d:.15s"><em>02</em><b>送り出す</b><span>関東・東北の店舗やイベントで活躍する</span></li>
+        <li class="rv" style="--d:.3s"><em>03</em><b>振り返る</b><span>実績をもとにフィードバックし、次の目標を決める</span></li>
         <li class="rv" style="--d:.45s"><em>04</em><b>広げる</b><span>案件を広げ、次のリーダーや独立も応援する</span></li>
       </ol>
     </div>
@@ -435,7 +474,7 @@ section { padding: 100px 0; position: relative; }
         <div class="card rv">
           <span class="num">02</span>
           <h3>動きが、見える</h3>
-          <p>勤怠・シフト・稼働実績は、自社の専用アプリで毎日記録。欠勤や遅れもすぐに共有され、取引先への報告が早く正確です。</p>
+          <p>勤怠・シフト・稼働実績は、自社の専用アプリで毎日記録。欠勤や遅れもすぐに共有され、取引先への報告が早く正確です。実績はスタッフへのフィードバックにも使い、次の成果につなげます。</p>
         </div>
         <div class="card rv">
           <span class="num">03</span>
@@ -448,7 +487,7 @@ section { padding: 100px 0; position: relative; }
         <li><b>ご相談</b><span>フォームかメールでお気軽に</span></li>
         <li><b>ヒアリング</b><span>キャリア・エリア・期間・人数</span></li>
         <li><b>スタッフの選定・研修</b><span>現場に合わせて準備</span></li>
-        <li><b>稼働・ご報告</b><span>勤怠と実績を毎日記録</span></li>
+        <li><b>稼働・振り返り</b><span>実績をご報告し、次の改善へ</span></li>
       </ol>
       <div class="center rv"><a class="btn gold" href="#contact" data-kind="案件・協業">案件・協業のご相談</a></div>
     </div>
@@ -466,7 +505,7 @@ section { padding: 100px 0; position: relative; }
           <span class="tag">週末スタッフ</span>
           <h3>土日を中心に、シフト希望を出して働く</h3>
           <p>平日はほかの仕事や学校、週末は携帯販売。副業として始める人も多い働き方です。</p>
-          <ul class="checks"><li>週末だけOK</li><li>毎月のシフト希望で働く日を決められる</li><li>未経験は研修からスタート</li></ul>
+          <ul class="checks"><li>週末だけでもOK</li><li>毎月のシフト希望で働く日を決められる</li><li>未経験は研修からスタート</li></ul>
         </div>
         <div class="card rv">
           <span class="tag">常勤スタッフ</span>
@@ -479,7 +518,7 @@ section { padding: 100px 0; position: relative; }
         <div class="card rv">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 12 3l9 3.5-9 3.5z"/><path d="M7 8.3v5.2c0 1.6 2.2 3 5 3s5-1.4 5-3V8.3"/><path d="M21 6.5v6"/></svg></div>
           <h3>研修制度</h3>
-          <p>業界経験のある先輩と、オンラインで1対1。断られたあとの一言や、プランの説明のしかたまで、現場で使えることを教えます。</p>
+          <p>業界経験のある先輩と、オンラインで1対1。断られたあとの一言や、プランの説明のしかたまで、現場で使えることを教えます。実績をもとにしたフィードバックで、次に伸ばすところもわかります。</p>
         </div>
         <div class="card rv">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M9.5 8h5M9.5 11.5h5M9.5 15h3"/></svg></div>
@@ -491,6 +530,41 @@ section { padding: 100px 0; position: relative; }
           <h3>キャリアアップ・独立支援</h3>
           <p>新しい事業の立ち上げや独立、別の業種への挑戦も、事業計画・営業のノウハウ・人脈づくりから応援します。</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="app" class="violet">
+    <div class="wrap app-wrap">
+      <div>
+        <div class="sec-hd rv">
+          <p class="en">App</p>
+          <h2>働くことが、<br>スマホひとつで。</h2>
+          <p>Themisのスタッフは、専用アプリ「Themis Portal」を使って働きます。毎日の打刻から毎月の請求書まで、ぜんぶアプリの中で。</p>
+        </div>
+        <div class="feats">
+          <div class="feat rv" style="--d:0s"><b>打刻はワンタップ</b><span>出勤・退勤はボタンひとつ。シフトの希望もアプリから出せます。</span></div>
+          <div class="feat rv" style="--d:.08s"><b>請求書もアプリで</b><span>働いた日の記録から、毎月の請求書を作って、そのまま提出できます。</span></div>
+          <div class="feat rv" style="--d:.16s"><b>研修をアプリで予約</b><span>先輩の空いている時間から選ぶだけ。終わったら内容と評価を残せます。</span></div>
+          <div class="feat rv" style="--d:.24s"><b>ありがとうがポイントに</b><span>仲間とありがとうを送り合うと、ポイントに。報酬にプラスできます。</span></div>
+          <div class="feat rv" style="--d:.32s"><b>自分の成長が見える</b><span>出勤日数や連続記録、もらったありがとうを、マイページで振り返れます。</span></div>
+          <div class="feat rv" style="--d:.4s"><b>お知らせ・相談も</b><span>会社からのお知らせも、困ったときの相談も、アプリの中で。</span></div>
+        </div>
+      </div>
+      <div class="phone-wrap rv" aria-hidden="true">
+        <div class="phone-mock">
+          <div class="pm-top"><img src="img/mark-w.svg" alt=""><span>Themis Portal</span></div>
+          <p class="pm-hello">おつかれさまです！</p>
+          <div class="pm-punch">出勤する</div>
+          <div class="pm-row">
+            <div class="pm-tile"><small>今月の出勤</small><b>12<i>日</i></b></div>
+            <div class="pm-tile"><small>ポイント</small><b>1,250<i>TP</i></b></div>
+          </div>
+          <div class="pm-card"><small>研修予約</small><b>11/2（月）13:00〜</b></div>
+          <div class="pm-card pm-thx"><small>ありがとうが届きました</small><b>いつもフォローありがとう！</b></div>
+          <div class="pm-nav"><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+        <p class="pm-note">※画面はイメージです</p>
       </div>
     </div>
   </section>
@@ -543,6 +617,7 @@ section { padding: 100px 0; position: relative; }
       </div>
       <ul class="news rv">
         <li><time>2026.10</time><span class="cat">お知らせ</span><span>ホームページをリニューアルしました。</span></li>
+        <li><time>2026.10</time><span class="cat">アプリ</span><span>スタッフ専用アプリ「Themis Portal」の配信を開始しました。</span></li>
         <li><time>2026.06</time><span class="cat">会社</span><span>株式会社Themisを設立しました。</span></li>
       </ul>
     </div>
@@ -586,7 +661,7 @@ section { padding: 100px 0; position: relative; }
           <div class="field"><label for="f-company">会社名</label><input id="f-company" name="company" autocomplete="organization" maxlength="80"></div>
           <div class="field"><label for="f-mail">メールアドレス<em>メールか電話のどちらか</em></label><input id="f-mail" name="mail" type="email" autocomplete="email" maxlength="120"></div>
           <div class="field"><label for="f-tel">電話番号</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" maxlength="30"></div>
-          <div class="field full"><label for="f-area">お住まい・ご希望のエリア</label><input id="f-area" name="area" placeholder="例：栃木県佐野市／宇都宮周辺" maxlength="60"></div>
+          <div class="field full"><label for="f-area">お住まい・ご希望のエリア</label><input id="f-area" name="area" placeholder="例：さいたま市／仙台駅周辺" maxlength="60"></div>
           <div class="field full"><label for="f-text">内容</label><textarea id="f-text" name="text" maxlength="2000" placeholder="働ける曜日や経験、ご相談の内容など、自由にお書きください"></textarea></div>
           <div class="hp" aria-hidden="true"><label>website<input name="website" tabindex="-1" autocomplete="off"></label></div>
         </div>

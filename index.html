@@ -15,26 +15,26 @@
 <link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=M+PLUS+1p:wght@500;700;800&family=M+PLUS+Rounded+1c:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Murecho:wght@600;700;800;900&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0c0a12;
   --bg2: #16121f;
   --line: #2b2540;
   --text: #f4f2fa;
-  --muted: #a9a3bd;
+  --muted: #cbc5dc;
   --vio: #9b6bff;
   --vio2: #c4a8ff;
   --pink: #ff5fae;
   --mint: #5ff0d0;
   --light: #f3f0fa;
   --ink: #17131f;
-  --ink-muted: #5d5770;
+  --ink-muted: #433d55;
   --radius: 16px;
   --wrap: 1100px;
   --en: "Anton", "Zen Kaku Gothic New", sans-serif;
-  --jp: "M PLUS Rounded 1c", "Zen Kaku Gothic New", sans-serif;
-  --ui: "M PLUS 1p", "Zen Kaku Gothic New", sans-serif;
+  --jp: "Murecho", "Zen Kaku Gothic New", sans-serif;
+  --ui: "Murecho", "Zen Kaku Gothic New", sans-serif;
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 * { box-sizing: border-box; }
@@ -207,10 +207,22 @@ section { padding: 100px 0; position: relative; }
 @keyframes up { to { opacity: 1; transform: none; } }
 .hero-logo { position: relative; padding: 4% 6%; }
 .logo-tilt { position: relative; z-index: 1; transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .4s ease-out; }
-.logo-svg { width: 100%; height: auto; mix-blend-mode: screen; animation: breathe 7s ease-in-out infinite; }
-@keyframes breathe {
-  0%, 100% { transform: rotate(-1.2deg) scale(1); filter: drop-shadow(0 0 22px rgba(155,107,255,.45)); }
-  50% { transform: rotate(1.2deg) scale(1.035) translateY(-6px); filter: drop-shadow(0 0 48px rgba(255,95,174,.5)); }
+.logo-tilt { display: flex; flex-direction: column; align-items: center; gap: 4%; transform: none; }
+.lp { transition: transform .5s ease-out; mix-blend-mode: screen; }
+.lp-mark { width: 46%; transform: translate(var(--mx, 0px), var(--my, 0px)); }
+.lp-word { width: 100%; transform: translate(var(--wx, 0px), var(--wy, 0px)); }
+.lp svg { width: 100%; height: auto; }
+.logo-mark { animation: markMove 8s ease-in-out infinite; transform-origin: 50% 60%; }
+.logo-word { animation: wordMove 11s ease-in-out infinite; }
+@keyframes markMove {
+  0%, 100% { transform: perspective(600px) rotateY(-16deg) translateY(0); filter: drop-shadow(0 0 18px rgba(155,107,255,.5)); }
+  25% { transform: perspective(600px) rotateY(0deg) translateY(-12px) scale(1.04); filter: drop-shadow(0 0 40px rgba(255,95,174,.6)); }
+  50% { transform: perspective(600px) rotateY(16deg) translateY(0); filter: drop-shadow(0 0 18px rgba(155,107,255,.5)); }
+  75% { transform: perspective(600px) rotateY(0deg) translateY(-6px) scale(1.02); filter: drop-shadow(0 0 32px rgba(95,240,208,.35)); }
+}
+@keyframes wordMove {
+  0%, 100% { transform: translateX(-6px); filter: drop-shadow(0 0 14px rgba(155,107,255,.35)); }
+  50% { transform: translateX(6px); filter: drop-shadow(0 0 30px rgba(255,95,174,.45)); }
 }
 .hero-logo .sticker { top: 4%; right: 2%; }
 .hero-logo .sticker.pink { top: auto; bottom: 6%; left: 0; right: auto; }
@@ -304,8 +316,8 @@ section { padding: 100px 0; position: relative; }
 }
 
 /* display type */
-.hero h1, .sec-hd h2 { font-family: var(--jp); font-weight: 800; letter-spacing: .04em; }
-.card h3, .cycle b, .fact b, .sub, .feat b, .pm-punch, .flow b { font-family: var(--jp); font-weight: 700; letter-spacing: .04em; }
+.hero h1, .sec-hd h2 { font-family: var(--jp); font-weight: 900; letter-spacing: .02em; }
+.card h3, .cycle b, .fact b, .sub, .feat b, .pm-punch, .flow b, .ladder b { font-family: var(--jp); font-weight: 800; letter-spacing: .03em; }
 .hero h1 { line-height: 1.4; font-size: clamp(32px, 4.9vw, 58px); }
 .hero h1 > span { white-space: nowrap; }
 .sec-hd h2 { line-height: 1.5; }
@@ -315,6 +327,62 @@ section { padding: 100px 0; position: relative; }
 .nav { font-weight: 700; letter-spacing: .08em; }
 .field label, .kinds legend { font-weight: 700; color: var(--text); font-size: 14px; letter-spacing: .06em; }
 [data-en]::before { content: attr(data-en); display: block; font: 400 12px/1.2 var(--en); letter-spacing: .24em; color: var(--pink); margin-bottom: 4px; }
+
+/* readable text */
+body { font-weight: 500; }
+.hero p.lead { font-size: 17px; color: #d6d0e6; }
+.sec-hd p { font-size: 16px; line-height: 2; }
+.card p { font-size: 15px; line-height: 1.95; }
+.cycle span, .fact span, .flow span, .faq details p, .checks li { font-size: 15px; }
+.feat span { font-size: 14px; color: #ece6fb; }
+.faq details p { color: #ece6fb; line-height: 1.95; }
+.violet .sec-hd p { color: #e6def9; }
+
+/* tidy line breaks: break at phrases, balance headings, no lone last words */
+h1, h2, h3, .cycle b, .fact b, .feat b, .flow b, .ladder b, .sub, .sub-lead, .faq summary { word-break: auto-phrase; text-wrap: balance; }
+p, .cycle span, .feat span, .flow span, .ladder span, .checks li, .news li span { word-break: auto-phrase; text-wrap: pretty; }
+
+.nw { white-space: nowrap; display: inline !important; font: inherit !important; color: inherit !important; margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; }
+.fact b, .fact span { word-break: auto-phrase; text-wrap: balance; }
+@media (max-width: 560px) {
+  .fact b { font-size: 18px; }
+  .fact span { font-size: 12.5px; }
+}
+
+/* motion */
+.progress { position: fixed; left: 0; top: 0; z-index: 60; height: 3px; width: 100%; background: linear-gradient(90deg, var(--vio), var(--pink), var(--mint)); transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
+.spot { position: fixed; z-index: 55; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%; background: radial-gradient(circle, rgba(155,107,255,.16), rgba(255,95,174,.06) 40%, transparent 70%); mix-blend-mode: screen; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.sec-hd .en { will-change: transform; }
+.sec-hd.rv h2 { clip-path: inset(-20% 100% -20% 0); transition: clip-path 1s cubic-bezier(.7,0,.2,1) .2s; }
+.sec-hd.rv.in h2 { clip-path: inset(-20% 0 -20% 0); }
+.hero h1 .up { animation-name: wipe; }
+@keyframes wipe { from { opacity: 1; clip-path: inset(-20% 100% -20% 0); transform: translateX(-12px); } to { opacity: 1; clip-path: inset(-20% 0 -20% 0); transform: none; } }
+.btn { position: relative; overflow: hidden; }
+.btn::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg); transition: left .6s; pointer-events: none; }
+.btn:hover::after { left: 130%; }
+.tilt-card { transition: transform .25s ease-out, box-shadow .2s; transform-style: preserve-3d; }
+
+/* career ladder */
+.sub-lead { text-align: center; color: var(--muted); margin: 10px 0 30px; font-size: 16px; }
+.ladder { list-style: none; padding: 0; margin: 0 0 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: start; }
+.ladder li { position: relative; padding: 22px 20px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(160deg, rgba(155,107,255,.2), rgba(22,18,31,.7) 65%); }
+.ladder li:nth-child(1) { margin-top: 90px; } .ladder li:nth-child(2) { margin-top: 60px; } .ladder li:nth-child(3) { margin-top: 30px; }
+.ladder li:nth-child(4) { background: linear-gradient(160deg, rgba(255,95,174,.35), rgba(22,18,31,.7) 70%); border-color: rgba(255,95,174,.5); }
+.ladder em { font: 400 15px var(--en); font-style: normal; letter-spacing: .2em; color: var(--pink); }
+.ladder b { display: block; font-size: 22px; margin: 2px 0 6px; }
+.ladder span { font-size: 14.5px; color: var(--muted); line-height: 1.85; display: block; }
+@media (max-width: 900px) {
+  .ladder { grid-template-columns: 1fr 1fr; }
+  .ladder li:nth-child(n) { margin-top: 0; }
+}
+@media (max-width: 560px) {
+  .ladder { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sec-hd.rv h2 { clip-path: none; transition: none; }
+  .progress, .spot { display: none; }
+  .btn::after { display: none; }
+}
 
 /* no copying */
 body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
@@ -361,7 +429,7 @@ img { -webkit-user-drag: none; }
   html { scroll-behavior: auto; }
   .rv { opacity: 1; transform: none; transition: none; }
   .up { opacity: 1; transform: none; animation: none; }
-  .ill *, .rings circle, .logo-svg, .scroll i, .wobble { animation: none !important; }
+  .ill *, .rings circle, .logo-mark, .logo-word, .scroll i, .wobble { animation: none !important; }
   .phone .w { opacity: 1; }
   .line path:first-child { stroke-dashoffset: 0; }
 }
@@ -396,7 +464,7 @@ img { -webkit-user-drag: none; }
       <div class="hero-txt">
         <p class="eyebrow up" style="--d:.05s">TELECOM SALES &amp; TRAINING</p>
         <h1 class="serif"><span class="up" style="--d:.2s">成長が、</span><br><span class="up" style="--d:.4s">次の<span class="hl">可能性</span>を作る。</span></h1>
-        <p class="lead up" style="--d:.6s">株式会社Themisは、関東・東北の携帯キャリア店舗へ営業スタッフを送る、営業代行の会社です。人を育て、現場へ。働く仲間と取引先、どちらの成長もつくります。</p>
+        <p class="lead up" style="--d:.6s">株式会社Themisは、関東・東北の携帯キャリア店舗へ営業スタッフを送る、営業代行の会社です。人を育て、現場へ。働く仲間と取引先、どちらの成長も作ります。</p>
         <div class="btns up" style="--d:.8s">
           <a class="btn gold" href="#recruit">働きたい方へ</a>
           <a class="btn ghost" href="#business">案件・協業のご相談</a>
@@ -404,15 +472,26 @@ img { -webkit-user-drag: none; }
       </div>
       <div class="hero-logo up" style="--d:.3s">
         <svg class="rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="60"/></svg>
-        <div class="logo-tilt"><svg class="logo-svg" viewBox="48.47 48.47 318.92 259.49" role="img" aria-label="Themis のロゴ">
-          <defs>
-            <g id="lg-shape" fill="#fff"><g transform="matrix(1 0 0 -1 0 358.7557668569413)"><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M218.56 189.65L218.56 222.52C220.47 223.73 222.08 224.23 223.47 224.87C223.47 218.33 223.47 206.14 223.47 198.34C222.46 196.22 220.68 192.84 218.56 189.65M235.28 189.65C233.58 192.43 231.72 195.87 230.43 198.17C229.95 198.95 230.44 197.3 230.43 198.17C230.36 206.66 230.43 216.16 230.43 224.87C232.36 223.86 235.1 222.8 235.1 222.8C235.1 222.8 235.28 190.32 235.28 189.65M219.29 177.31C220.33 179.5 221.95 183.33 222.89 185.29C223.02 185.23 222.89 185.29 222.89 185.29C222.89 185.29 222.82 178.76 222.82 178.62C222.83 172.93 222.82 171.44 222.82 165.41C206.02 165.41 187.63 165.36 170.31 165.36L174.86 157.42L278.82 157.42C279.91 159.63 282.26 163.14 283.35 165.36C283.35 165.36 280.06 165.4 278.65 165.39C271.6 165.34 264.55 165.37 257.51 165.37L231.11 165.37L231.11 185.08C232.52 182.32 233.05 180.74 234.6 177.62C237.1 178.63 240.46 180.35 240.46 180.35C240.46 180.35 242.63 181.52 242.43 185.09C242.38 185.76 242.4 187.65 242.4 188.31C242.4 206.94 241.79 223.27 241.74 241.9C241.67 266.27 241.91 268.94 241.95 278.97C241.95 278.97 234.72 283.04 234.72 282.9C234.68 265.46 234.47 230.55 234.5 230.53C232.01 231.83 230.87 232.66 230.87 232.66C230.87 253.75 230.88 277.34 230.88 299.22C228.32 299.51 225.73 299.28 222.97 299.38L222.97 232.43C221.97 231.91 219.01 230.53 219.01 230.53C218.7 249.35 218.54 277.23 218.56 282.68C215.62 281.23 214.49 280.09 211.74 278.74C211.74 277.43 211.83 215.4 211.63 186.03C211.6 182.08 211.77 180.69 214.98 179.2C215.82 178.81 218.05 177.79 219.29 177.31" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M288.98 200.63L298.23 200.63C293.89 211.96 289.95 223.2 286.64 234.71L272.44 234.71C272.44 234.71 260.03 203.68 259.18 200.75L268.82 200.75C269.5 202.44 275.07 217.99 276.37 224.55L281.84 224.55C283.37 219.99 284.9 215.42 286.44 210.84C280.59 203.43 274.83 196.11 269 188.71L281.71 168.24C284.07 171.04 285.98 173.72 287.12 175.39C289.21 178.48 292.37 183.06 294.66 186.09C295.08 186.63 289.17 186.75 286.3 186.75L282.07 182.74L279.32 187.18C279.32 187.18 287.22 197.88 288.98 200.63" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M231.89 154.66L222.29 154.66C222.22 152.82 222.29 146.1 222.29 144.25L227.19 139.16C228.73 140.82 230.19 142.38 231.89 144.19Z" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M286.3 140.23L285.96 165.36C284.84 164.64 280.97 157.78 280.5 157.12C280.44 155.28 280.33 152.25 280.49 145.47Z" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M165.22 200.63L155.97 200.63C160.31 211.96 164.25 223.2 167.56 234.71L181.76 234.71C181.76 234.71 194.17 203.68 195.02 200.75L185.38 200.75C184.69 202.44 179.13 217.99 177.83 224.55L172.36 224.55C170.82 219.99 169.3 215.42 167.76 210.84C173.6 203.43 179.37 196.11 185.2 188.71L172.48 168.24C170.13 171.04 168.21 173.72 167.08 175.39C164.99 178.48 161.83 183.06 159.54 186.09C159.12 186.63 165.03 186.75 167.9 186.75L172.12 182.74L174.88 187.18C174.88 187.18 166.98 197.88 165.22 200.63" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M167.38 140.23L167.71 165.36C168.83 164.64 172.7 157.78 173.17 157.12C173.23 155.28 173.33 152.25 173.18 145.47Z" fill="#f2f2f0"></path></g></g></g></g><g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M284.64 394.59L278.65 394.59C278.82 378.94 278.5 358.96 278.45 343.31C278.43 335.66 275.7 331.83 270.42 331.74C264.42 331.64 258.99 337.15 258.92 343.87C258.77 358.53 258.84 373.19 258.83 387.84C258.82 390.14 258.82 391.97 258.82 394.59L252.63 394.59C252.63 389.09 252.63 384.25 252.63 378.96C252.63 367.3 252.8 355.64 252.52 343.98C252.45 340.97 251.47 337.71 250 335.07C247.86 331.22 243.24 330.43 239.57 332.95C235.46 335.78 232.65 339.32 232.73 344.89C232.95 359.55 232.79 374.21 232.78 388.87C232.78 390.66 232.78 392.45 232.78 394.59L227.17 394.59L226.25 394.59L226.29 390.77C226.25 372.78 226.18 354.79 226.37 336.8C226.38 335.19 226.25 331.83 226.25 329.36C226.25 329.36 228.39 330.06 233.52 334.35C238.17 330.95 242.19 329.78 246.46 330.2C250.78 330.62 254.76 334.58 259.28 337.22C259.31 337.18 260.13 335.98 261.07 334.89C264.69 330.69 270.15 329.19 275.02 330.98C281.36 333.32 284.6 337.43 284.62 343.42C284.65 360.39 284.64 377.45 284.64 394.59Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M144.96 394.54L138.93 394.54C138.85 392.68 138.71 390.91 138.71 389.15C138.68 373 138.71 356.86 138.66 340.71C138.64 334.24 135.76 330.99 130.13 330.83C124.15 330.66 119.58 334.87 119.54 340.92C119.44 357.24 119.47 373.55 119.44 389.86C119.43 391.02 119.44 393.48 119.39 394.6C112.56 394.49 112.54 394.6 112.54 394.6C112.5 365.47 112.54 327.1 112.53 297.97L119.36 297.97C119.36 309.74 119.36 321.06 119.36 333.92C121.36 332.52 122.51 331.73 123.64 330.92C129.81 326.52 137.54 326.98 142.74 332.35C143.9 333.55 144.86 335.54 144.87 337.18C145.01 356.12 144.96 375.07 144.96 394.54Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M361.62 309.97C364.07 303.21 362.07 296.45 357.18 293.03C353.78 289.99 349.26 288.87 344.63 291.07C340.61 293.26 338.07 299.2 338.84 304.04C339.81 310.1 343.67 313.61 349.81 315.56C356.1 317.56 362.54 319.71 368.17 323.05C379.37 329.7 384.81 340.12 384.27 353.19C383.52 371.55 372.2 394.24 344.34 394.59C334.28 394.72 325.92 390.9 318.91 383.8C307.22 371.95 302.95 348.76 310.72 334.07L311.83 335.43C305.09 348.81 309.14 371.72 322.32 384.49C335.21 396.98 358.27 394.79 368.63 380.1C376.23 369.34 378.74 357.17 375.65 344.43C372.23 330.29 361.24 324.29 348.07 321.74C340.67 320.31 335.44 316.8 333.14 309.53C330.27 300.49 336.29 290.85 346 288.76C354.1 287.02 362.82 292.52 363.92 302.09C364.15 306.45 363.44 307.49 362.87 310.07C362.45 310.04 362.04 310 361.62 309.97Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M210.8 344.41C206.08 330.84 192.49 324.97 179.19 330.06C165.47 335.31 157.99 353.46 162.01 364.82C178.18 358.05 194.35 351.29 210.8 344.41ZM216.81 344.05C198.25 351.73 180.16 359.21 162.13 366.66C165.07 378.78 173.25 388.52 185.17 391.16C195.37 392.39 206.54 391.39 218.49 368.83L219.48 369.94C207.76 395.6 189.4 396.81 174.47 393.1C151.8 386.04 144.26 356.54 160.92 337.75C172.77 324.39 190.55 321.59 204.02 329.35C209.66 332.59 213.89 337.13 216.81 344.05Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M88.71 298.78C88.71 331.12 88.67 363.27 88.67 394.6L82.51 394.6C82.66 366.79 82.32 333.58 82.32 305.76L82.32 299.09L69.39 299.09L69.4 297.97L105.64 297.97C105.64 298.24 105.65 298.51 105.66 298.78Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M300.72 332.39C300.72 342.39 300.73 351.96 300.71 361.25C300.69 371.22 300.81 384.63 300.55 394.6L296.35 394.6L293.85 394.6C293.88 375.98 293.74 350.95 293.84 332.33Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -18.922822137338734 447.44717848363246)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M302.32 322.58C302.32 325.37 300.05 327.63 297.26 327.63C294.47 327.63 292.21 325.37 292.21 322.58C292.21 319.78 294.47 317.52 297.26 317.52C300.05 317.52 302.32 319.78 302.32 322.58Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g></g></g></g>
-            <linearGradient id="lg-fill" x1="0" y1="0" x2="1" y2="1" spreadMethod="reflect"><stop offset="0" stop-color="#f6f1ff"/><stop offset=".35" stop-color="#c9b2ff"/><stop offset=".65" stop-color="#ff9fd0"/><stop offset="1" stop-color="#f6f1ff"/><animateTransform attributeName="gradientTransform" type="translate" values="-1 -1;1 1;-1 -1" dur="10s" repeatCount="indefinite"/></linearGradient>
-            <linearGradient id="lg-shine" gradientUnits="userSpaceOnUse" x1="48.47" y1="48.47" x2="367.39" y2="307.96000000000004"><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset=".65" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" values="-382.704 0;382.704 0;382.704 0" keyTimes="0;.4;1" dur="6s" repeatCount="indefinite"/></linearGradient>
-            <mask id="lg-mask"><use href="#lg-shape"/></mask>
-          </defs>
-          <g mask="url(#lg-mask)"><rect x="48.47" y="48.47" width="318.92" height="259.49" fill="url(#lg-fill)"/><rect x="48.47" y="48.47" width="318.92" height="259.49" fill="url(#lg-shine)"/></g>
-        </svg></div>
+        <div class="logo-tilt" role="img" aria-label="Themis のロゴ">
+          <div class="lp lp-mark"><svg class="logo-mark" viewBox="26.62 26.62 194.83 218.93" aria-hidden="true">
+            <defs>
+              <g id="lm-shape" fill="#fff"><g transform="matrix(1 0 0 -1 0 272.3534)"><g><g transform="matrix(1 0 0 1 -125.77180000000001 320.05820000000006)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1.1 0 0 -1.1 0 0)"><path d="M216.69 130.96L216.69 171.05C219.02 172.53 220.98 173.13 222.67 173.91C222.67 165.94 222.67 151.07 222.67 141.56C221.44 138.98 219.27 134.86 216.69 130.96M237.07 130.96C235 134.35 232.73 138.55 231.16 141.36C230.58 142.31 231.17 140.3 231.16 141.36C231.07 151.71 231.16 163.29 231.16 173.91C233.52 172.68 236.86 171.39 236.86 171.39C236.86 171.39 237.07 131.78 237.07 130.96M217.57 115.92C218.85 118.59 220.82 123.26 221.97 125.65C222.12 125.57 221.97 125.65 221.97 125.65C221.97 125.65 221.88 117.68 221.88 117.51C221.89 110.57 221.88 108.76 221.88 101.4C201.39 101.4 178.97 101.34 157.85 101.34L163.39 91.66L290.17 91.66C291.5 94.35 294.37 98.64 295.7 101.34C295.7 101.34 291.68 101.39 289.97 101.38C281.37 101.32 272.77 101.35 264.18 101.35L231.99 101.35L231.99 125.39C233.71 122.02 234.36 120.1 236.25 116.29C239.29 117.53 243.39 119.62 243.39 119.62C243.39 119.62 246.04 121.05 245.79 125.4C245.74 126.22 245.76 128.52 245.76 129.33C245.76 152.05 245.01 171.97 244.95 194.69C244.87 224.4 245.16 227.66 245.21 239.89C245.21 239.89 236.39 244.85 236.39 244.69C236.35 223.41 236.09 180.84 236.13 180.82C233.09 182.4 231.7 183.41 231.7 183.41C231.7 209.13 231.71 237.9 231.71 264.59C228.59 264.94 225.43 264.66 222.06 264.78L222.06 183.13C220.85 182.5 217.23 180.82 217.23 180.82C216.86 203.77 216.66 237.77 216.69 244.42C213.1 242.65 211.72 241.26 208.37 239.61C208.37 238.01 208.48 162.37 208.23 126.55C208.2 121.73 208.41 120.04 212.32 118.22C213.34 117.74 216.06 116.5 217.57 115.92" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -125.77180000000001 320.05820000000006)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1.1 0 0 -1.1 0 0)"><path d="M302.56 144.35L313.84 144.35C308.55 158.17 303.75 171.88 299.71 185.92L282.39 185.92C282.39 185.92 267.26 148.07 266.22 144.5L277.98 144.5C278.81 146.56 285.6 165.52 287.18 173.53L293.86 173.53C295.72 167.96 297.59 162.39 299.46 156.81C292.33 147.77 285.31 138.84 278.2 129.82L293.7 104.85C296.57 108.27 298.91 111.54 300.29 113.57C302.84 117.34 306.7 122.93 309.49 126.62C310 127.28 302.79 127.43 299.3 127.43L294.14 122.54L290.78 127.95C290.78 127.95 300.42 141 302.56 144.35" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -125.77180000000001 320.05820000000006)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1.1 0 0 -1.1 0 0)"><path d="M232.94 88.3L221.24 88.3C221.15 86.05 221.24 77.86 221.24 75.6L227.21 69.39C229.09 71.41 230.87 73.32 232.94 75.53Z" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -125.77180000000001 320.05820000000006)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1.1 0 0 -1.1 0 0)"><path d="M299.29 70.7L298.88 101.34C297.51 100.47 292.79 92.1 292.22 91.29C292.15 89.05 292.02 85.36 292.21 77.09Z" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -125.77180000000001 320.05820000000006)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1.1 0 0 -1.1 0 0)"><path d="M151.64 144.35L140.36 144.35C145.65 158.17 150.45 171.88 154.49 185.92L171.81 185.92C171.81 185.92 186.94 148.07 187.98 144.5L176.22 144.5C175.38 146.56 168.6 165.52 167.02 173.53L160.34 173.53C158.47 167.96 156.61 162.39 154.74 156.81C161.86 147.77 168.89 138.84 176 129.82L160.49 104.85C157.62 108.27 155.28 111.54 153.91 113.57C151.36 117.34 147.5 122.93 144.71 126.62C144.2 127.28 151.41 127.43 154.9 127.43L160.05 122.54L163.42 127.95C163.42 127.95 153.78 141 151.64 144.35" fill="#f2f2f0"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -125.77180000000001 320.05820000000006)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1.1 0 0 -1.1 0 0)"><path d="M154.27 70.7L154.67 101.34C156.04 100.47 160.76 92.1 161.33 91.29C161.4 89.05 161.53 85.36 161.34 77.09Z" fill="#f2f2f0"></path></g></g></g></g></g></g>
+              <linearGradient id="lm-fill" x1="0" y1="0" x2="1" y2="1" spreadMethod="reflect"><stop offset="0" stop-color="#f6f1ff"/><stop offset=".35" stop-color="#c9b2ff"/><stop offset=".65" stop-color="#ff9fd0"/><stop offset="1" stop-color="#f6f1ff"/><animateTransform attributeName="gradientTransform" type="translate" values="-1 -1;1 1;-1 -1" dur="9s" repeatCount="indefinite"/></linearGradient>
+              <linearGradient id="lm-shine" gradientUnits="userSpaceOnUse" x1="26.62" y1="26.62" x2="221.45000000000002" y2="245.55"><stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset=".62" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" values="-253.27900000000002 0;253.27900000000002 0;253.27900000000002 0" keyTimes="0;.35;1" dur="5s" begin="0s" repeatCount="indefinite"/></linearGradient>
+              <mask id="lm-mask"><use href="#lm-shape"/></mask>
+            </defs>
+            <g mask="url(#lm-mask)"><rect x="26.62" y="26.62" width="194.83" height="218.93" fill="url(#lm-fill)"/><rect x="26.62" y="26.62" width="194.83" height="218.93" fill="url(#lm-shine)"/></g>
+          </svg></div>
+          <div class="lp lp-word"><svg class="logo-word" viewBox="36.59 38.02 318.92 110.21" aria-hidden="true">
+            <defs>
+              <g id="lw-shape" fill="#fff"><g transform="matrix(1 0 0 -1 0 187.14880000000008)"><g><g><g transform="matrix(1 0 0 1 -30.795600000000007 435.5744)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M284.64 394.59L278.65 394.59C278.82 378.94 278.5 358.96 278.45 343.31C278.43 335.66 275.7 331.83 270.42 331.74C264.42 331.64 258.99 337.15 258.92 343.87C258.77 358.53 258.84 373.19 258.83 387.84C258.82 390.14 258.82 391.97 258.82 394.59L252.63 394.59C252.63 389.09 252.63 384.25 252.63 378.96C252.63 367.3 252.8 355.64 252.52 343.98C252.45 340.97 251.47 337.71 250 335.07C247.86 331.22 243.24 330.43 239.57 332.95C235.46 335.78 232.65 339.32 232.73 344.89C232.95 359.55 232.79 374.21 232.78 388.87C232.78 390.66 232.78 392.45 232.78 394.59L227.17 394.59L226.25 394.59L226.29 390.77C226.25 372.78 226.18 354.79 226.37 336.8C226.38 335.19 226.25 331.83 226.25 329.36C226.25 329.36 228.39 330.06 233.52 334.35C238.17 330.95 242.19 329.78 246.46 330.2C250.78 330.62 254.76 334.58 259.28 337.22C259.31 337.18 260.13 335.98 261.07 334.89C264.69 330.69 270.15 329.19 275.02 330.98C281.36 333.32 284.6 337.43 284.62 343.42C284.65 360.39 284.64 377.45 284.64 394.59Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -30.795600000000007 435.5744)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M144.96 394.54L138.93 394.54C138.85 392.68 138.71 390.91 138.71 389.15C138.68 373 138.71 356.86 138.66 340.71C138.64 334.24 135.76 330.99 130.13 330.83C124.15 330.66 119.58 334.87 119.54 340.92C119.44 357.24 119.47 373.55 119.44 389.86C119.43 391.02 119.44 393.48 119.39 394.6C112.56 394.49 112.54 394.6 112.54 394.6C112.5 365.47 112.54 327.1 112.53 297.97L119.36 297.97C119.36 309.74 119.36 321.06 119.36 333.92C121.36 332.52 122.51 331.73 123.64 330.92C129.81 326.52 137.54 326.98 142.74 332.35C143.9 333.55 144.86 335.54 144.87 337.18C145.01 356.12 144.96 375.07 144.96 394.54Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -30.795600000000007 435.5744)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M361.62 309.97C364.07 303.21 362.07 296.45 357.18 293.03C353.78 289.99 349.26 288.87 344.63 291.07C340.61 293.26 338.07 299.2 338.84 304.04C339.81 310.1 343.67 313.61 349.81 315.56C356.1 317.56 362.54 319.71 368.17 323.05C379.37 329.7 384.81 340.12 384.27 353.19C383.52 371.55 372.2 394.24 344.34 394.59C334.28 394.72 325.92 390.9 318.91 383.8C307.22 371.95 302.95 348.76 310.72 334.07L311.83 335.43C305.09 348.81 309.14 371.72 322.32 384.49C335.21 396.98 358.27 394.79 368.63 380.1C376.23 369.34 378.74 357.17 375.65 344.43C372.23 330.29 361.24 324.29 348.07 321.74C340.67 320.31 335.44 316.8 333.14 309.53C330.27 300.49 336.29 290.85 346 288.76C354.1 287.02 362.82 292.52 363.92 302.09C364.15 306.45 363.44 307.49 362.87 310.07C362.45 310.04 362.04 310 361.62 309.97Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -30.795600000000007 435.5744)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M210.8 344.41C206.08 330.84 192.49 324.97 179.19 330.06C165.47 335.31 157.99 353.46 162.01 364.82C178.18 358.05 194.35 351.29 210.8 344.41ZM216.81 344.05C198.25 351.73 180.16 359.21 162.13 366.66C165.07 378.78 173.25 388.52 185.17 391.16C195.37 392.39 206.54 391.39 218.49 368.83L219.48 369.94C207.76 395.6 189.4 396.81 174.47 393.1C151.8 386.04 144.26 356.54 160.92 337.75C172.77 324.39 190.55 321.59 204.02 329.35C209.66 332.59 213.89 337.13 216.81 344.05Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -30.795600000000007 435.5744)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M88.71 298.78C88.71 331.12 88.67 363.27 88.67 394.6L82.51 394.6C82.66 366.79 82.32 333.58 82.32 305.76L82.32 299.09L69.39 299.09L69.4 297.97L105.64 297.97C105.64 298.24 105.65 298.51 105.66 298.78Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -30.795600000000007 435.5744)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M300.72 332.39C300.72 342.39 300.73 351.96 300.71 361.25C300.69 371.22 300.81 384.63 300.55 394.6L296.35 394.6L293.85 394.6C293.88 375.98 293.74 350.95 293.84 332.33Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g><g><g transform="matrix(1 0 0 1 -30.795600000000007 435.5744)"><g transform="matrix(1 0 0 1 0 0)"><g transform="matrix(1 0 0 -1 0 0)"><path d="M302.32 322.58C302.32 325.37 300.05 327.63 297.26 327.63C294.47 327.63 292.21 325.37 292.21 322.58C292.21 319.78 294.47 317.52 297.26 317.52C300.05 317.52 302.32 319.78 302.32 322.58Z" fill="#f2f2f0" stroke="#f2f2f0" stroke-width="0.6"></path></g></g></g></g></g></g></g>
+              <linearGradient id="lw-fill" x1="0" y1="0" x2="1" y2="1" spreadMethod="reflect"><stop offset="0" stop-color="#f6f1ff"/><stop offset=".35" stop-color="#c9b2ff"/><stop offset=".65" stop-color="#ff9fd0"/><stop offset="1" stop-color="#f6f1ff"/><animateTransform attributeName="gradientTransform" type="translate" values="-1 -1;1 1;-1 -1" dur="12s" repeatCount="indefinite"/></linearGradient>
+              <linearGradient id="lw-shine" gradientUnits="userSpaceOnUse" x1="36.59" y1="38.02" x2="355.51" y2="148.23"><stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset=".62" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" values="-414.59600000000006 0;414.59600000000006 0;414.59600000000006 0" keyTimes="0;.35;1" dur="7s" begin="2.2s" repeatCount="indefinite"/></linearGradient>
+              <mask id="lw-mask"><use href="#lw-shape"/></mask>
+            </defs>
+            <g mask="url(#lw-mask)"><rect x="36.59" y="38.02" width="318.92" height="110.21" fill="url(#lw-fill)"/><rect x="36.59" y="38.02" width="318.92" height="110.21" fill="url(#lw-shine)"/></g>
+          </svg></div>
+        </div>
       </div>
     </div>
     <a class="scroll" href="#concept" aria-label="下へ"><span>SCROLL</span><i></i></a>
@@ -421,7 +500,7 @@ img { -webkit-user-drag: none; }
   <div class="facts">
     <div class="fact rv"><b><span class="count" data-to="3">3</span>キャリア</b><span>docomo・au・SoftBank</span></div>
     <div class="fact rv"><b>関東・東北</b><span>店舗・量販店・イベント</span></div>
-    <div class="fact rv"><b>研修制度</b><span>先輩と1対1で学べる</span></div>
+    <div class="fact rv"><b>研修制度</b><span>学びながら稼げる</span></div>
     <div class="fact rv"><b>週末だけでもOK</b><span>未経験から始められる</span></div>
   </div>
 
@@ -430,10 +509,10 @@ img { -webkit-user-drag: none; }
       <div class="sec-hd rv">
         <p class="en">Concept</p>
         <h2>育てる。送り出す。振り返る。<br>そして、広げる。</h2>
-        <p>Themis（テーミス）は、人を育てることから始まる会社です。スタッフが育てば、お店の売上が上がる。売上が上がれば、新しい仕事がまた増える。このめぐりを、現場の実績とフィードバックで回していきます。</p>
+        <p>Themis（テーミス）は、人を育てることから始まる会社です。スタッフが育てば、お店の売上が上がる。売上が上がれば、新しい仕事がまた増える。この循環を、現場の実績とフィードバックで回していきます。</p>
       </div>
       <ol class="cycle">
-        <li class="rv" style="--d:0s"><em>01</em><b>育てる</b><span>先輩と1対1の研修で、現場の力をつける</span></li>
+        <li class="rv" style="--d:0s"><em>01</em><b>育てる</b><span>先輩と<span class="nw">1対1</span>の研修で、現場の力を付ける</span></li>
         <li class="rv" style="--d:.15s"><em>02</em><b>送り出す</b><span>関東・東北の店舗やイベントで活躍する</span></li>
         <li class="rv" style="--d:.3s"><em>03</em><b>振り返る</b><span>実績をもとにフィードバックし、次の目標を決める</span></li>
         <li class="rv" style="--d:.45s"><em>04</em><b>広げる</b><span>案件を広げ、次のリーダーや独立も応援する</span></li>
@@ -446,29 +525,29 @@ img { -webkit-user-drag: none; }
     <div class="wrap">
       <div class="sec-hd rv">
         <p class="en">Team</p>
-        <h2>みんなで、会社をつくる。</h2>
-        <p>Themisは、現場に人を送るだけの会社ではありません。お客さまと向き合う営業も、スタッフや現場の管理も、案件も、自分たちの手で持っています。だからこそ、一人ひとりの声で、会社をいっしょにつくっていけます。</p>
+        <h2>みんなで、会社を作る。</h2>
+        <p>Themisは、現場に人を送るだけの会社ではありません。お客様と向き合う営業も、スタッフや現場の管理も、案件も、自分たちの手で持っています。だからこそ、一人ひとりの声で、会社を一緒に作っていけます。</p>
       </div>
       <div class="grid g4">
         <div class="card rv" style="--d:0s">
           <span class="num">01</span>
-          <h3>お客さまと、向き合う</h3>
-          <p>店頭やイベントで、お客さまと直接話す対面の営業。顔を合わせて信頼をつくる力を、いちばん大切にしています。</p>
+          <h3>お客様と、向き合う</h3>
+          <p>店頭やイベントで、お客様と直接話す対面の営業。顔を合わせて信頼を作る力を、一番大切にしています。</p>
         </div>
         <div class="card rv" style="--d:.1s">
           <span class="num">02</span>
           <h3>管理まで、自分たちで</h3>
-          <p>シフト・勤怠・実績の管理も自社で行います。経験を積めば、現場をまとめる側にも挑戦できます。</p>
+          <p>シフト・勤怠・実績の管理は自社で行うので、初めての人は販売に集中できます。上を目指す人は、管理する側にも挑戦できます。</p>
         </div>
         <div class="card rv" style="--d:.2s">
           <span class="num">03</span>
           <h3>案件を、自社で持つ</h3>
-          <p>自社で案件を持っているから、働く場所を自分たちで選び、広げていけます。</p>
+          <p>案件を自社で持っているから、働く場所を自分たちで選び、広げていけます。</p>
         </div>
         <div class="card rv" style="--d:.3s">
           <span class="num">04</span>
-          <h3>会社を、いっしょに</h3>
-          <p>働き方もしくみも、現場の声から決めていきます。スタッフ一人ひとりが、会社をつくる仲間です。</p>
+          <h3>会社を、一緒に</h3>
+          <p>働き方も仕組みも、現場の声から決めていきます。スタッフ一人ひとりが、会社を作る仲間です。</p>
         </div>
       </div>
     </div>
@@ -493,22 +572,22 @@ img { -webkit-user-drag: none; }
           <svg class="ill event" viewBox="0 0 160 110" aria-hidden="true"><path d="M30 92h100"/><path d="M44 92V52l36-22 36 22v40"/><path d="M44 52h72"/><path d="M66 92V70h28v22"/><path class="flag f1" d="M80 30V12l14 5-14 5"/><path class="flag f2" d="M44 52V36l11 4-11 4"/><path class="flag f3" d="M116 52V36l11 4-11 4"/></svg>
           <span class="no">02</span>
           <h3>イベント・催事</h3>
-          <p>ショッピングモールなどのイベント・催事で、声かけから契約までを担当します。</p>
+          <p>ショッピングモールなどのイベント・催事で、声掛けから契約までを担当します。</p>
           <div class="tags"><span>イベント</span><span>催事</span></div>
         </div>
         <div class="card biz rv" style="--d:.2s">
           <svg class="ill line" viewBox="0 0 160 110" aria-hidden="true"><path d="M18 78h40l10-18 12 30 12-46 10 34h40"/><circle class="dot" cx="18" cy="78" r="4"/><path class="bolt" d="M120 20l-12 22h12l-8 20"/></svg>
           <span class="no">03</span>
           <h3>光回線・電気・オプション</h3>
-          <p>インターネット回線や電気の契約、オプションなどの副商材もあわせてご提案します。</p>
+          <p>インターネット回線や電気の契約、オプションなどの副商材も併せてご提案します。</p>
           <div class="tags"><span>光回線</span><span>電気</span><span>オプション</span></div>
         </div>
         <div class="card biz rv" style="--d:.3s">
           <svg class="ill people" viewBox="0 0 160 110" aria-hidden="true"><circle class="pulse" cx="80" cy="50" r="30"/><circle cx="62" cy="44" r="9"/><path d="M46 86c2-14 8-22 16-22s14 8 16 22"/><circle cx="98" cy="40" r="11"/><path d="M80 88c2-17 9-26 18-26s16 9 18 26"/></svg>
           <span class="no">04</span>
           <h3>人材の育成</h3>
-          <p>未経験のスタッフも、研修で現場に出られる力をつけてから送り出します。</p>
-          <div class="tags"><span>研修</span><span>1対1</span></div>
+          <p>未経験のスタッフも、研修で現場に出られる力を付けてから送り出します。</p>
+          <div class="tags"><span>研修</span><span><span class="nw">1対1</span></span></div>
         </div>
       </div>
     </div>
@@ -525,7 +604,7 @@ img { -webkit-user-drag: none; }
         <div class="card rv">
           <span class="num">01</span>
           <h3>育ててから、現場へ</h3>
-          <p>研修は1回60分、先輩と1対1。教える側も受ける側も「内容と評価」を残すので、身についたことが見えます。</p>
+          <p>研修は1回60分、先輩と<span class="nw">1対1</span>。教える側も受ける側も「内容と評価」を残すので、身についたことが見えます。</p>
         </div>
         <div class="card rv">
           <span class="num">02</span>
@@ -560,31 +639,39 @@ img { -webkit-user-drag: none; }
         <div class="card rv">
           <span class="tag">週末スタッフ</span>
           <h3>土日を中心に、シフト希望を出して働く</h3>
-          <p>平日はほかの仕事や学校、週末は携帯販売。副業として始める人も多い働き方です。</p>
+          <p>平日は他の仕事や学校、週末は携帯販売。副業として始める人も多い働き方です。</p>
           <ul class="checks"><li>週末だけでもOK</li><li>毎月のシフト希望で働く日を決められる</li><li>未経験は研修からスタート</li></ul>
         </div>
         <div class="card rv">
           <span class="tag">常勤スタッフ</span>
           <h3>決まった店舗で、しっかり稼ぐ</h3>
-          <p>店舗が決めるシフトで、腰をすえて働きます。経験を積んで、成果に応じて報酬アップを目指せます。</p>
+          <p>店舗が決めるシフトで、腰を据えて働きます。経験を積んで、成果に応じて報酬アップを目指せます。</p>
           <ul class="checks"><li>経験者歓迎（年数は問いません）</li><li>成長に応じて報酬アップ</li><li>キャリアアップ・独立の相談もできる</li></ul>
         </div>
       </div>
+      <h3 class="sub rv">自分のペースで、上を目指せる。</h3>
+      <p class="sub-lead rv">最初は販売だけでOK。管理や独立は、目指したい人だけが挑戦できます。</p>
+      <ol class="ladder">
+        <li class="rv" style="--d:0s"><em>STEP 1</em><b>学ぶ</b><span>先輩と<span class="nw">1対1</span>の研修で基本から。研修を受けるとポイントが貯まり、学びながら稼げます。</span></li>
+        <li class="rv" style="--d:.12s"><em>STEP 2</em><b>売る</b><span>店頭やイベントで販売。成果に応じて報酬がアップします。</span></li>
+        <li class="rv" style="--d:.24s"><em>STEP 3</em><b>率いる</b><span>リーダーとして現場と仲間を管理。後輩に研修をすると、教える側にもポイントが入ります。</span></li>
+        <li class="rv" style="--d:.36s"><em>STEP 4</em><b>独立する</b><span>自分の事業へ。事業計画・営業のノウハウ・人脈作りまで支援します。</span></li>
+      </ol>
       <div class="grid g3" style="margin-top:18px">
         <div class="card rv">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 12 3l9 3.5-9 3.5z"/><path d="M7 8.3v5.2c0 1.6 2.2 3 5 3s5-1.4 5-3V8.3"/><path d="M21 6.5v6"/></svg></div>
           <h3>研修制度</h3>
-          <p>業界経験のある先輩と、オンラインで1対1。断られたあとの一言や、プランの説明のしかたまで、現場で使えることを教えます。実績をもとにしたフィードバックで、次に伸ばすところもわかります。</p>
+          <p>業界経験のある先輩と、オンラインで<span class="nw">1対1</span>。断られた後の一言からプランの説明の仕方まで、現場で使えることを教えます。受けるたびにポイントが貯まり、学びながら稼げます。</p>
         </div>
         <div class="card rv">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M9.5 8h5M9.5 11.5h5M9.5 15h3"/></svg></div>
-          <h3>専用アプリで、かんたん</h3>
-          <p>打刻・シフト・毎月の請求書まで、スマホのアプリでまとめて。ありがとうを送り合えるポイントのしくみもあります。</p>
+          <h3>専用アプリで、簡単</h3>
+          <p>打刻・シフト・毎月の請求書まで、スマホのアプリでまとめて。ありがとうを送り合えるポイントの仕組みもあります。</p>
         </div>
         <div class="card rv">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
           <h3>キャリアアップ・独立支援</h3>
-          <p>新しい事業の立ち上げや独立、別の業種への挑戦も、事業計画・営業のノウハウ・人脈づくりから応援します。</p>
+          <p>リーダー、そして独立へ。新しい事業の立ち上げや別の業種への挑戦も、事業計画・営業のノウハウ・人脈作りから応援します。力のある人ほど、上を目指せる会社です。</p>
         </div>
       </div>
     </div>
@@ -596,12 +683,12 @@ img { -webkit-user-drag: none; }
         <div class="sec-hd rv">
           <p class="en">App</p>
           <h2>働くことが、<br>スマホひとつで。</h2>
-          <p>Themisのスタッフは、専用アプリ「Themis Portal」を使って働きます。毎日の打刻から毎月の請求書まで、ぜんぶアプリの中で。</p>
+          <p>Themisのスタッフは、専用アプリ「Themis Portal」を使って働きます。毎日の打刻から毎月の請求書まで、全部アプリの中で。</p>
         </div>
         <div class="feats">
           <div class="feat rv" style="--d:0s"><b>打刻はワンタップ</b><span>出勤・退勤はボタンひとつ。シフトの希望もアプリから出せます。</span></div>
           <div class="feat rv" style="--d:.08s"><b>請求書もアプリで</b><span>働いた日の記録から、毎月の請求書を作って、そのまま提出できます。</span></div>
-          <div class="feat rv" style="--d:.16s"><b>研修をアプリで予約</b><span>先輩の空いている時間から選ぶだけ。終わったら内容と評価を残せます。</span></div>
+          <div class="feat rv" style="--d:.16s"><b>研修でポイントも</b><span>先輩の空いている時間から選んで予約。受けて内容と評価を残すと、ポイントがもらえます。</span></div>
           <div class="feat rv" style="--d:.24s"><b>ありがとうがポイントに</b><span>仲間とありがとうを送り合うと、ポイントに。報酬にプラスできます。</span></div>
           <div class="feat rv" style="--d:.32s"><b>自分の成長が見える</b><span>出勤日数や連続記録、もらったありがとうを、マイページで振り返れます。</span></div>
           <div class="feat rv" style="--d:.4s"><b>お知らせ・相談も</b><span>会社からのお知らせも、困ったときの相談も、アプリの中で。</span></div>
@@ -610,7 +697,7 @@ img { -webkit-user-drag: none; }
       <div class="phone-wrap rv" aria-hidden="true">
         <div class="phone-mock">
           <div class="pm-top"><img src="img/mark-w.svg" alt=""><span>Themis Portal</span></div>
-          <p class="pm-hello">おつかれさまです！</p>
+          <p class="pm-hello">お疲れ様です！</p>
           <div class="pm-punch">出勤する</div>
           <div class="pm-row">
             <div class="pm-tile"><small>今月の出勤</small><b>12<i>日</i></b></div>
@@ -630,12 +717,12 @@ img { -webkit-user-drag: none; }
       <div class="sec-hd rv">
         <p class="en">Flow</p>
         <h2>応募から、現場デビューまで</h2>
-        <p class="muted">働く日数やエリアは、面談で相談して決めます。わからないことは、何でも聞いてください。</p>
+        <p class="muted">働く日数やエリアは、面談で相談して決めます。分からないことは、何でも聞いてください。</p>
       </div>
       <ol class="flow flow-wrap rv">
         <li><b>応募</b><span>下のフォームから送るだけ</span></li>
         <li><b>面談</b><span>働き方・エリア・日数を相談</span></li>
-        <li><b>研修</b><span>先輩と1対1で基本を身につける</span></li>
+        <li><b>研修</b><span>先輩と<span class="nw">1対1</span>で基本を身に付ける</span></li>
         <li><b>現場デビュー</b><span>研修はその後も続けられる</span></li>
       </ol>
       <div class="center rv"><a class="btn gold" href="#contact" data-kind="働きたい">応募・質問する</a></div>
@@ -651,13 +738,13 @@ img { -webkit-user-drag: none; }
       <div class="faq grid g2">
         <div class="rv">
           <p class="faq-for">働きたい方</p>
-          <details><summary>未経験でも大丈夫ですか？</summary><p>はい。研修で、接客の基本やプランの説明のしかたから学べます。わからないことは先輩に1対1で聞けます。</p></details>
-          <details><summary>週末だけでも働けますか？</summary><p>はい。毎月シフトの希望を出して、働く日を決められます。平日にほかの仕事をしている人もいます。</p></details>
+          <details><summary>未経験でも大丈夫ですか？</summary><p>はい。研修で、接客の基本やプランの説明の仕方から学べます。分からないことは先輩に<span class="nw">1対1</span>で聞けます。最初は販売だけで大丈夫です。</p></details>
+          <details><summary>週末だけでも働けますか？</summary><p>はい。毎月シフトの希望を出して、働く日を決められます。平日に他の仕事をしている人もいます。</p></details>
           <details><summary>どこで働きますか？</summary><p>関東・東北の携帯キャリアショップ、家電量販店、イベント会場などです。お住まいの近くを中心にご相談します。</p></details>
         </div>
         <div class="rv">
-          <p class="faq-for">会社さま</p>
-          <details><summary>短い期間や少ない人数でも頼めますか？</summary><p>はい。期間・人数・エリアをうかがって、できる形をご提案します。まずはお気軽にご相談ください。</p></details>
+          <p class="faq-for">会社様</p>
+          <details><summary>短い期間や少ない人数でも頼めますか？</summary><p>はい。期間・人数・エリアを伺って、できる形をご提案します。まずはお気軽にご相談ください。</p></details>
           <details><summary>どのキャリアに対応していますか？</summary><p>docomo・au・SoftBank です。光回線・電気・オプションなどの商材もご相談ください。</p></details>
           <details><summary>稼働の報告はどうなりますか？</summary><p>勤怠・シフト・稼働実績を専用アプリで毎日記録しているので、早く正確にご報告できます。</p></details>
         </div>
@@ -703,7 +790,7 @@ img { -webkit-user-drag: none; }
       <div class="sec-hd rv">
         <p class="en">Contact</p>
         <h2>お問い合わせ・応募</h2>
-        <p>働きたい方も、案件・協業をご相談の会社さまも、こちらからお送りください。担当者からご連絡します。</p>
+        <p>働きたい方も、案件・協業をご相談の会社様も、こちらからお送りください。担当者からご連絡します。</p>
       </div>
       <form class="form rv" id="form" novalidate>
         <fieldset class="kinds">
@@ -723,7 +810,7 @@ img { -webkit-user-drag: none; }
         </div>
         <div class="send">
           <button class="btn gold" type="submit">送信する</button>
-          <span class="note">送信後の確認画面はありません。いただいた情報は、ご連絡のためだけに使います。</span>
+          <span class="note">送信後の確認画面はありません。頂いた情報は、ご連絡のためだけに使います。</span>
         </div>
         <div class="msg" id="msg" role="status" aria-live="polite"></div>
       </form>
@@ -746,17 +833,51 @@ img { -webkit-user-drag: none; }
 const inForm = e => e.target.closest && e.target.closest("input, textarea");
 ["copy", "cut", "contextmenu", "selectstart", "dragstart"].forEach(k => document.addEventListener(k, e => { if (!inForm(e)) e.preventDefault(); }));
 
-// logo tilt
+// motion
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches, hover = matchMedia("(hover: hover)").matches;
 const tilt = document.querySelector(".logo-tilt"), hero = document.querySelector(".hero");
-const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (still) document.querySelector(".logo-svg").pauseAnimations();
-else if (matchMedia("(hover: hover)").matches) {
-  hero.addEventListener("mousemove", e => {
-    const r = tilt.getBoundingClientRect(), dx = (e.clientX - r.left - r.width / 2) / innerWidth, dy = (e.clientY - r.top - r.height / 2) / innerHeight;
-    tilt.style.setProperty("--ry", (dx * 24).toFixed(2) + "deg");
-    tilt.style.setProperty("--rx", (-dy * 18).toFixed(2) + "deg");
-  });
-  hero.addEventListener("mouseleave", () => { tilt.style.setProperty("--rx", "0deg"); tilt.style.setProperty("--ry", "0deg"); });
+if (still) document.querySelectorAll(".logo-tilt svg").forEach(s => s.pauseAnimations());
+else {
+  // the mark and the word drift apart toward the mouse
+  if (hover) {
+    const set = (k, v) => tilt.style.setProperty(k, v.toFixed(1) + "px");
+    hero.addEventListener("mousemove", e => {
+      const r = tilt.getBoundingClientRect(), dx = (e.clientX - r.left - r.width / 2) / innerWidth, dy = (e.clientY - r.top - r.height / 2) / innerHeight;
+      set("--mx", dx * 50); set("--my", dy * 36); set("--wx", -dx * 22); set("--wy", -dy * 14);
+    });
+    hero.addEventListener("mouseleave", () => ["--mx", "--my", "--wx", "--wy"].forEach(k => tilt.style.setProperty(k, "0px")));
+  }
+
+  const bar = document.createElement("div"); bar.className = "progress"; document.body.append(bar);
+  const ens = [...document.querySelectorAll(".sec-hd .en")];
+  let ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? scrollY / max : 0) + ")";
+    for (const el of ens) {
+      const r = el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) continue;
+      el.style.transform = "translateX(" + ((r.top - innerHeight / 2) * -0.12).toFixed(1) + "px)";
+    }
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  if (hover) {
+    const spot = document.createElement("div"); spot.className = "spot"; document.body.append(spot);
+    addEventListener("mousemove", e => { spot.style.opacity = 1; spot.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)"; });
+    document.addEventListener("mouseleave", () => spot.style.opacity = 0);
+
+    document.querySelectorAll(".card, .feat, .cycle li, .ladder li").forEach(c => {
+      c.classList.add("tilt-card");
+      c.addEventListener("mousemove", e => {
+        const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        c.style.transform = "perspective(700px) rotateX(" + (-y * 8).toFixed(2) + "deg) rotateY(" + (x * 10).toFixed(2) + "deg) translateY(-4px)";
+      });
+      c.addEventListener("mouseleave", () => c.style.transform = "");
+    });
+  }
 }
 
 const API = "https://script.google.com/macros/s/AKfycbzQevDDT9kEQz9kNPEQ4fDfVZ0t_ASLRhpAZE0Jm5j2QO-z5j93_i_thEJrbqaAFvh3/exec";

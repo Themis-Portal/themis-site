@@ -364,7 +364,7 @@ body { font-weight: 500; text-wrap: pretty; }
 h1, h2, h3, .cycle b, .fact b, .feat b, .flow b, .ladder b, .sub, .sub-lead, .faq summary { word-break: auto-phrase; text-wrap: balance; }
 p, .cycle span, .feat span, .flow span, .ladder span, .checks li, .news li span { line-break: strict; text-wrap: pretty; }
 
-.nw { white-space: nowrap; display: inline !important; font: inherit !important; color: inherit !important; margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; }
+.nw { white-space: nowrap !important; text-wrap: nowrap !important; display: inline !important; font: inherit !important; color: inherit !important; margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; }
 .fact b, .fact span { word-break: auto-phrase; text-wrap: balance; }
 @media (max-width: 560px) {
   .fact b { font-size: 18px; }
@@ -456,6 +456,13 @@ img { -webkit-user-drag: none; }
   section { padding: 76px 0; }
   .hero { padding: 48px 0 80px; }
   .g2 { grid-template-columns: 1fr; }
+  .g2.styles { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .styles .card { padding: 16px 14px; }
+  .styles .card h3 { font-size: 15.5px; margin: 10px 0 6px; }
+  .styles .card p { font-size: 13.5px; line-height: 1.75; }
+  .styles .tag { font-size: 11px; padding: 2px 10px; }
+  .styles .checks { gap: 6px; }
+  .styles .checks li { font-size: 13px; padding-left: 20px; line-height: 1.6; word-break: auto-phrase; }
   .g4 { gap: 10px; }
   .g4 .card { padding: 16px 14px; }
   .g4 .num { font-size: 32px; }

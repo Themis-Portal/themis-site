@@ -312,6 +312,12 @@ section { padding: 76px 0 100px; position: relative; }
 .feat b { display: block; font-size: 15px; font-weight: 900; margin-bottom: 4px; }
 .feat b::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); margin-right: 8px; vertical-align: middle; }
 .feat span { font-size: 13px; color: #d4cbee; line-height: 1.7; }
+.app-badge { display: inline-flex; align-items: center; gap: 14px; margin-top: 22px; padding: 10px 20px 10px 10px; border-radius: 22px; background: rgba(12,10,18,.55); border: 1px solid rgba(165,133,255,.35); box-shadow: 0 0 30px -8px rgba(139,92,255,.6); }
+.app-badge img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,.45), 0 0 22px rgba(139,92,255,.55); }
+.app-badge b { display: block; font: 800 18px var(--ui); letter-spacing: .02em; color: #fff; }
+.app-badge b i { font-style: normal; background: linear-gradient(90deg, #a585ff, #5ff0d0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.app-badge span { display: block; font-size: 12px; color: #c9bfe8; margin-top: 2px; }
+@media (max-width: 900px) { #app .app-badge { display: flex; width: fit-content; clear: both; } }
 .phone-wrap { display: flex; flex-direction: column; align-items: center; }
 .phone-mock { width: 260px; border-radius: 46px; padding: 8px; background: linear-gradient(145deg, #3a3150, #121019 40%, #26203a); box-shadow: 0 30px 60px rgba(0,0,0,.55), 0 0 70px rgba(139,92,255,.35), inset 0 0 0 1.5px rgba(255,255,255,.14); transform: rotate(4deg); animation: tilt 6s ease-in-out infinite; }
 @keyframes tilt { 50% { transform: rotate(1deg) translateY(-8px); } }
@@ -827,6 +833,7 @@ img { -webkit-user-drag: none; }
           <p class="en">Themis Portal</p>
           <h2>働くことが、<br>スマホひとつで。</h2>
           <p>スタッフは専用アプリ「Themis Portal」で働きます。毎日の打刻から毎月の請求書まで、全部アプリの中で。</p>
+          <div class="app-badge"><img src="img/portal-icon.png" alt="Themis Portal のアイコン" width="64" height="64"><div><b>Themis <i>PORTAL</i></b><span>スタッフ専用アプリ ・ iPhone / Android</span></div></div>
         </div>
         <div class="feats">
           <div class="feat rv" style="--d:0s"><b>打刻はワンタップ</b><span>出勤・退勤もシフトの希望も、アプリからすぐ。</span></div>

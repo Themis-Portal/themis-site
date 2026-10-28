@@ -220,8 +220,8 @@ section { padding: 76px 0 100px; position: relative; }
 .lp svg { width: 100%; height: auto; overflow: visible; }
 .logo-mark { animation: markIn 1.2s cubic-bezier(.2,.9,.2,1) .2s both, markIdle 10s ease-in-out 1.4s infinite; transform-origin: 50% 60%; }
 .logo-mark .pan { transform-box: fill-box; transform-origin: 50% 0%; }
-.logo-mark .pan-l { animation: panL 4.5s cubic-bezier(.4,0,.3,1) 1.4s infinite; }
-.logo-mark .pan-r { animation: panR 4.5s cubic-bezier(.4,0,.3,1) 1.4s infinite; }
+.logo-mark .pan-l { animation: panL 5s ease-in-out 1.4s infinite; }
+.logo-mark .pan-r { animation: panR 5s ease-in-out 1.4s infinite; }
 
 .logo-word .ch { transform-box: fill-box; transform-origin: 50% 50%; }
 .logo-word .base .ch { animation: assemble .9s cubic-bezier(.2,.9,.2,1) both, lift 5s ease-out infinite; animation-delay: calc(var(--i) * .08s + .7s), calc(var(--i) * .09s + 2.4s); }
@@ -238,9 +238,9 @@ section { padding: 76px 0 100px; position: relative; }
   25% { transform: translateY(-7px) rotate(-1.5deg); }
   75% { transform: translateY(-7px) rotate(1.5deg); }
 }
-/* the two S hang like the pans of a scale: one dips while the other rises */
-@keyframes panL { 0%, 70%, 100% { transform: none; } 10% { transform: translateY(10%) rotate(-14deg); } 22% { transform: translateY(-6%) rotate(10deg); } 34% { transform: translateY(4%) rotate(-6deg); } 46% { transform: translateY(-2%) rotate(3deg); } 58% { transform: rotate(-1deg); } }
-@keyframes panR { 0%, 70%, 100% { transform: none; } 10% { transform: translateY(-10%) rotate(14deg); } 22% { transform: translateY(6%) rotate(-10deg); } 34% { transform: translateY(-4%) rotate(6deg); } 46% { transform: translateY(2%) rotate(-3deg); } 58% { transform: rotate(1deg); } }
+/* the two S hang like the pans of a scale: a slow, gentle see-saw, one dips while the other rises */
+@keyframes panL { 0%, 100% { transform: none; } 25% { transform: translateY(3.5%) rotate(-2deg); } 75% { transform: translateY(-3.5%) rotate(2deg); } }
+@keyframes panR { 0%, 100% { transform: none; } 25% { transform: translateY(-3.5%) rotate(-2deg); } 75% { transform: translateY(3.5%) rotate(2deg); } }
 /* the word sits inside a vertical flip, so +Y is up */
 @keyframes assemble {
   from { opacity: 0; transform: translateY(var(--fy)) skewX(-14deg) scale(.85); }
@@ -313,29 +313,51 @@ section { padding: 76px 0 100px; position: relative; }
 .feat b::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); margin-right: 8px; vertical-align: middle; }
 .feat span { font-size: 13px; color: #d4cbee; line-height: 1.7; }
 .phone-wrap { display: flex; flex-direction: column; align-items: center; }
-.phone-mock { width: 260px; border-radius: 38px; padding: 18px 16px 14px; background: #0c0a12; border: 8px solid #241c38; box-shadow: 0 30px 60px rgba(0,0,0,.5), 0 0 0 2px rgba(155,107,255,.5), 12px 12px 0 rgba(255,95,174,.45); transform: rotate(4deg); animation: tilt 6s ease-in-out infinite; }
+.phone-mock { width: 260px; border-radius: 46px; padding: 8px; background: linear-gradient(145deg, #3a3150, #121019 40%, #26203a); box-shadow: 0 30px 60px rgba(0,0,0,.55), 0 0 70px rgba(139,92,255,.35), inset 0 0 0 1.5px rgba(255,255,255,.14); transform: rotate(4deg); animation: tilt 6s ease-in-out infinite; }
 @keyframes tilt { 50% { transform: rotate(1deg) translateY(-8px); } }
-.pm-top { display: flex; align-items: center; gap: 8px; font: 400 14px var(--en); letter-spacing: .08em; }
-.pm-top img { height: 20px; }
-.pm-hello { margin: 14px 0 10px; font-size: 13px; color: var(--muted); }
-.pm-punch { text-align: center; font-weight: 900; font-size: 18px; padding: 16px 0; border-radius: 16px; background: linear-gradient(135deg, var(--vio), var(--pink)); color: #fff; animation: glowp 2.4s ease-in-out infinite; }
-@keyframes glowp { 50% { box-shadow: 0 0 0 6px rgba(155,107,255,.25), 0 0 26px rgba(255,95,174,.5); } }
-.pm-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
-.pm-tile, .pm-card { background: #1a1528; border-radius: 12px; padding: 10px 12px; }
-.pm-tile small, .pm-card small { display: block; font-size: 10px; color: var(--muted); }
-.pm-tile b { font: 400 24px var(--en); color: var(--vio2); }
-.pm-tile b i { font: 700 11px "Zen Kaku Gothic New", sans-serif; font-style: normal; margin-left: 3px; color: var(--muted); }
-.pm-card { margin-top: 8px; }
-.pm-card b { font-size: 13px; }
-.pm-thx { border: 1px solid rgba(255,95,174,.5); animation: pop 5s ease-in-out infinite; }
-@keyframes pop { 0%, 50%, 100% { transform: none; box-shadow: none; } 58% { transform: scale(1.04); box-shadow: 0 0 0 2px rgba(255,95,174,.6), 0 0 22px rgba(255,95,174,.45); } 70% { transform: none; box-shadow: 0 0 14px rgba(255,95,174,.3); } }
-.pm-nav { display: flex; justify-content: space-around; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
-.pm-nav i { width: 18px; height: 18px; border-radius: 6px; background: #2b2540; }
-.pm-nav i.on { background: var(--vio); }
+.pm-screen { position: relative; overflow: hidden; border-radius: 38px; padding: 8px 12px 8px; color: #f1edff; font-family: var(--ui); background: radial-gradient(120% 55% at 15% 0%, rgba(139,92,255,.42), transparent 62%), radial-gradient(90% 45% at 100% 62%, rgba(95,240,208,.13), transparent 60%), #0a0812; }
+.pm-status { display: flex; align-items: center; justify-content: space-between; height: 22px; padding: 0 10px; font: 700 11px/1 system-ui, sans-serif; }
+.pm-island { position: absolute; left: 50%; top: 8px; width: 72px; height: 21px; border-radius: 999px; background: #000; translate: -50% 0; }
+.pm-sig { display: flex; align-items: flex-end; gap: 1.5px; }
+.pm-sig i { width: 2.5px; border-radius: 1px; background: #fff; }
+.pm-sig i:nth-child(1) { height: 4px; } .pm-sig i:nth-child(2) { height: 6px; } .pm-sig i:nth-child(3) { height: 8px; } .pm-sig i:nth-child(4) { height: 10px; }
+.pm-sig em { width: 19px; height: 9px; margin-left: 5px; border-radius: 3px; border: 1.2px solid rgba(255,255,255,.55); background: linear-gradient(90deg, #fff 70%, transparent 70%) 1px 1px / calc(100% - 2px) calc(100% - 2px) no-repeat; }
+.pm-top { display: flex; align-items: center; gap: 7px; margin: 12px 0 12px; }
+.pm-top img { width: 26px; height: 26px; border-radius: 8px; box-shadow: 0 0 12px rgba(139,92,255,.5); }
+.pm-name { font-weight: 800; font-size: 13px; letter-spacing: .02em; }
+.pm-name b { background: linear-gradient(90deg, #a585ff, #5ff0d0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pm-tp { margin-left: auto; display: flex; align-items: center; gap: 4px; padding: 4px 8px 4px 5px; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); font-weight: 800; font-size: 11px; }
+.pm-tp i { width: 13px; height: 13px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #e4d6ff, #8b5cff 70%); box-shadow: 0 0 7px rgba(139,92,255,.9); }
+.pm-hello { margin: 0 0 10px; font-size: 15px; font-weight: 800; }
+.pm-hello small { display: block; font-size: 10px; font-weight: 500; color: #a99fc8; margin-bottom: 2px; }
+.pm-glass { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
+.pm-punch-card { display: flex; align-items: center; gap: 10px; padding: 11px 11px 11px 13px; }
+.pm-clock small, .pm-tile small, .pm-card small { display: block; font-size: 10px; color: #a99fc8; }
+.pm-clock b { font: 400 30px/1.1 var(--en); letter-spacing: .03em; }
+.pm-punch { flex: 1; text-align: center; font-weight: 800; font-size: 15px; padding: 13px 0; border-radius: 12px; background: linear-gradient(135deg, #8b5cff, #5ff0d0); color: #0a0812; animation: glowp 2.4s ease-in-out infinite; }
+@keyframes glowp { 50% { box-shadow: 0 0 0 5px rgba(139,92,255,.22), 0 0 24px rgba(95,240,208,.45); } }
+.pm-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.pm-tile { padding: 9px 12px; }
+.pm-tile b { font: 400 26px/1.1 var(--en); background: linear-gradient(90deg, #e4d6ff, #a585ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pm-tile b i { font: 700 11px var(--ui); font-style: normal; margin-left: 3px; color: #a99fc8; -webkit-text-fill-color: #a99fc8; }
+.pm-card { margin-top: 8px; padding: 9px 12px; }
+.pm-line { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 2px; }
+.pm-card b { font-size: 12.5px; white-space: nowrap; }
+.pm-tix { display: flex; gap: 3px; }
+.pm-tix i { width: 13px; height: 9px; border-radius: 2px; background: linear-gradient(135deg, #ff7ac1, #a585ff); box-shadow: 0 0 6px rgba(255,122,193,.5); }
+.pm-tix i.used { background: #3a3450; box-shadow: none; }
+.pm-thx { border-color: rgba(165,133,255,.45); animation: pop 5s ease-in-out infinite; }
+.pm-thx em { font-style: normal; font-weight: 800; font-size: 11px; color: #5ff0d0; }
+@keyframes pop { 0%, 50%, 100% { transform: none; box-shadow: none; } 58% { transform: scale(1.04); box-shadow: 0 0 0 1.5px rgba(165,133,255,.7), 0 0 22px rgba(139,92,255,.5); } 70% { transform: none; box-shadow: 0 0 14px rgba(139,92,255,.3); } }
+.pm-dock { display: flex; justify-content: space-around; align-items: center; margin-top: 12px; padding: 6px; border-radius: 20px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); }
+.pm-dock i { display: grid; place-items: center; width: 38px; height: 30px; border-radius: 12px; color: #8d84ad; }
+.pm-dock i.on { color: #fff; background: linear-gradient(135deg, rgba(139,92,255,.75), rgba(95,240,208,.35)); box-shadow: 0 0 14px rgba(139,92,255,.5); }
+.pm-dock svg { width: 17px; height: 17px; }
+.pm-bar { display: block; width: 92px; height: 4px; margin: 10px auto 0; border-radius: 999px; background: rgba(255,255,255,.55); }
 .pm-note { font-size: 11px; color: #bdb3dc; margin: 22px 0 0; }
 @media (max-width: 900px) {
   .app-wrap { grid-template-columns: 1fr; position: relative; }
-  #app .sec-hd .phone-wrap { float: right; position: relative; width: 118px; height: 222px; margin: 4px 0 12px 20px; }
+  #app .sec-hd .phone-wrap { float: right; position: relative; width: 118px; height: 240px; margin: 4px 0 12px 20px; }
   #app .sec-hd .phone-mock { position: absolute; top: 0; right: 0; width: 280px; scale: .42; transform-origin: top right; }
   #app .sec-hd .pm-note { position: absolute; left: -10px; right: -10px; bottom: 0; margin: 0; font-size: 10px; text-align: center; }
 }
@@ -345,6 +367,7 @@ section { padding: 76px 0 100px; position: relative; }
   .feat b { font-size: 14px; }
   .feat span { font-size: 13px; line-height: 1.7; display: block; }
   .phone-mock { width: 240px; }
+  #app .sec-hd .en { font-size: clamp(34px, 11vw, 60px); white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   .phone-mock, .pm-punch, .pm-thx { animation: none !important; }
@@ -467,7 +490,7 @@ p, .cycle span, .feat span, .flow span, .ladder span, .checks li, .news li span 
 
 /* opening */
 .intro { display: none; }
-.intro-show .intro { display: grid; position: fixed; inset: 0; z-index: 100; place-items: center; background: #0a0810 var(--grain); animation: introOut .7s cubic-bezier(.7,0,.2,1) 1.6s forwards; }
+.intro-show .intro { display: grid; position: fixed; inset: 0; z-index: 100; place-items: center; background: #0a0810 var(--grain); animation: introOut .8s ease 1.6s forwards; }
 .intro::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 3px); animation: noise .12s steps(2) infinite; }
 .intro::after { content: ""; position: absolute; left: 0; right: 0; height: 120px; top: -120px; background: linear-gradient(transparent, rgba(155,107,255,.18), transparent); animation: scan 1.1s linear .1s 2; }
 .intro-logo { position: relative; width: min(240px, 56vw); aspect-ratio: 318.92 / 259.49; animation: introLogo 1.6s steps(1) both; }
@@ -483,7 +506,7 @@ p, .cycle span, .feat span, .flow span, .ladder span, .checks li, .news li span 
 @keyframes splitC { 0%, 46%, 80%, 100% { transform: none; opacity: 0; } 8% { transform: translate(10px, -2px); opacity: 1; } 20% { transform: translate(-6px, 1px); } 32% { transform: translate(4px, 0); } 74% { transform: translate(-8px, 0); opacity: 1; } }
 @keyframes noise { 50% { transform: translateY(1px); opacity: .7; } }
 @keyframes scan { to { top: 100%; } }
-@keyframes introOut { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
+@keyframes introOut { to { opacity: 0; transform: scale(1.04); visibility: hidden; } }
 .intro-on .hero, .intro-on .hero * { animation-play-state: paused !important; }
 
 /* no copying */
@@ -801,7 +824,7 @@ img { -webkit-user-drag: none; }
     <div class="wrap app-wrap">
       <div>
         <div class="sec-hd rv">
-          <p class="en">App</p>
+          <p class="en">Themis Portal</p>
           <h2>働くことが、<br>スマホひとつで。</h2>
           <p>スタッフは専用アプリ「Themis Portal」で働きます。毎日の打刻から毎月の請求書まで、全部アプリの中で。</p>
         </div>
@@ -816,16 +839,25 @@ img { -webkit-user-drag: none; }
       </div>
       <div class="phone-wrap rv" aria-hidden="true">
         <div class="phone-mock">
-          <div class="pm-top"><img src="img/mark-w.svg" alt=""><span>Themis Portal</span></div>
-          <p class="pm-hello">お疲れ様です！</p>
-          <div class="pm-punch">出勤する</div>
-          <div class="pm-row">
-            <div class="pm-tile"><small>今月の出勤</small><b>12<i>日</i></b></div>
-            <div class="pm-tile"><small>ポイント</small><b>1,250<i>TP</i></b></div>
+          <div class="pm-screen">
+            <div class="pm-status"><b>9:41</b><span class="pm-island"></span><span class="pm-sig"><i></i><i></i><i></i><i></i><em></em></span></div>
+            <div class="pm-top"><img src="img/portal-tile.png" alt=""><span class="pm-name">Themis <b>PORTAL</b></span><span class="pm-tp"><i></i>1,250</span></div>
+            <p class="pm-hello"><small>11月2日（月）</small>おはようございます</p>
+            <div class="pm-glass pm-punch-card"><div class="pm-clock"><small>いまの時刻</small><b>09:58</b></div><div class="pm-punch">出勤する</div></div>
+            <div class="pm-row">
+              <div class="pm-glass pm-tile"><small>今月の出勤</small><b>12<i>日</i></b></div>
+              <div class="pm-glass pm-tile"><small>ありがとう</small><b>8<i>件</i></b></div>
+            </div>
+            <div class="pm-glass pm-card"><small>研修チケット</small><div class="pm-line"><b>11/2（月）13:00〜</b><span class="pm-tix"><i></i><i></i><i></i><i class="used"></i><i class="used"></i></span></div></div>
+            <div class="pm-glass pm-card pm-thx"><small>ありがとうが届きました</small><div class="pm-line"><b>いつもフォローありがとう！</b><em>+50TP</em></div></div>
+            <div class="pm-dock">
+              <i class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></i>
+              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></i>
+              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg></i>
+              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></i>
+            </div>
+            <span class="pm-bar"></span>
           </div>
-          <div class="pm-card"><small>研修予約</small><b>11/2（月）13:00〜</b></div>
-          <div class="pm-card pm-thx"><small>ありがとうが届きました</small><b>いつもフォローありがとう！</b></div>
-          <div class="pm-nav"><i class="on"></i><i></i><i></i><i></i></div>
         </div>
         <p class="pm-note">※画面はイメージです</p>
       </div>
@@ -971,7 +1003,7 @@ if (document.documentElement.classList.contains("intro-show")) {
 document.querySelectorAll(".sec-hd .en").forEach(el => {
   const w = el.textContent;
   el.setAttribute("aria-label", w);
-  el.innerHTML = [...w].map((c, i) => '<span class="c" aria-hidden="true" style="--i:' + i + '">' + c + "</span>").join("");
+  el.innerHTML = [...w].map((c, i) => '<span class="c" aria-hidden="true" style="--i:' + i + '">' + (c === " " ? " " : c) + "</span>").join("");
 });
 const still = matchMedia("(prefers-reduced-motion: reduce)").matches, hover = matchMedia("(hover: hover)").matches;
 const tilt = document.querySelector(".logo-tilt"), hero = document.querySelector(".hero");

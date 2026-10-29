@@ -53,6 +53,9 @@ ul { padding-left: 1.3em; margin: 8px 0; }
 .ft { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: 13px; }
 .ft .wrap { max-width: 1100px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .ft a { text-decoration: none; }
+.ws { display: inline-block !important; font: inherit !important; color: inherit !important; letter-spacing: inherit !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; width: auto !important; position: static !important; }
+.kw { white-space: nowrap !important; display: inline !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; }
+.tail { white-space: nowrap !important; display: inline !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; }
 </style>
 </head>
 <body>
@@ -130,6 +133,61 @@ ul { padding-left: 1.3em; margin: 8px 0; }
 </footer>
 <script>
 ["copy", "cut", "contextmenu", "selectstart", "dragstart"].forEach(k => document.addEventListener(k, e => e.preventDefault()));
+</script>
+<script>
+// Japanese text breaks only between phrases (文節): 「平日は／仕事や学校、／週末は／携帯販売。」
+// Each phrase becomes an inline-block, so a word like 週末 or スタッフ is never cut, and the last line never has only 1-2 characters.
+(() => {
+  const SEL = "main p, main li, main td, main dd, main h2, main h3, main summary, main .note, main .fact span, .cycle span, .ladder span, .feat span, .feat b, .flow span, .flow b, .pay-ex li > span";
+  const seg = window.Intl && Intl.Segmenter ? new Intl.Segmenter("ja", { granularity: "word" }) : null;
+  const END = /[、。・，．！？」』）〕】：]$/;          // a phrase ends after these
+  const OPEN = /[「『（〔【]$/;                       // these stay with the next word
+  const GLUE = /^[、。・，．！？」』）〕】：ー〜ぁぃぅぇぉっゃゅょ]/; // these never start a line
+  const HIRA = /^[ぁ-ゖ]/, HIRA_END = /[ぁ-ゖ]$/;
+  const split = text => {
+    const words = seg ? [...seg.segment(text)].map(s => s.segment) : [...text];
+    for (let i = words.length - 2; i >= 0; i--) if (/^[ごお]$/.test(words[i])) words.splice(i, 2, words[i] + words[i + 1]); // ご提案: ご stays with the next word
+    const out = [];
+    for (const w of words) {
+      if (!out.length) { out.push(w); continue; }
+      const p = out[out.length - 1];
+      let join;
+      if (/^\s+$/.test(w) || /\s$/.test(p)) join = true;
+      else if (OPEN.test(p) || GLUE.test(w) || /[」』）]$/.test(p) && /^[ぁ-ゖ]{1,2}$/.test(w)) join = true;
+      else if (/^[ごお][一-龠]/.test(w)) join = !END.test(p) && !HIRA_END.test(p);
+      else if (END.test(p)) join = false;
+      else if (HIRA.test(w)) join = w.length <= 3 || !/^[ぁ-ゖ]+$/.test(w); // short particles and endings stay with the word before; ありがとう starts a new phrase
+      else join = !HIRA_END.test(p);               // a new word after a particle starts a new phrase; 携帯+販売 stay together
+      if (join) out[out.length - 1] += w; else out.push(w);
+    }
+    return out;
+  };
+  const len = s => [...s.replace(/\s/g, "")].length;
+  document.querySelectorAll(SEL).forEach(el => {
+    if (el.closest("svg, .hp, .ws") || el.querySelector(".ws")) return;
+    const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [];
+    for (let n; n = tw.nextNode();) if (n.data.trim() && !n.parentElement.closest(".nw, .ph, .ws, svg")) nodes.push(n);
+    nodes.forEach(n => {
+      const parts = split(n.data), frag = document.createDocumentFragment();
+      const spans = parts.map(t => {
+        if (!t.trim()) { frag.appendChild(document.createTextNode(t)); return null; }
+        const s = document.createElement("span"); s.className = "ws"; s.textContent = t; frag.appendChild(s); return s;
+      }).filter(Boolean);
+      // 「の研修で」 right after <span>1対1</span>: keep it with that element
+      const prev = n.previousSibling;
+      if (spans.length && prev && prev.nodeType === 1 && prev.tagName !== "BR" && !prev.classList.contains("ws") && (GLUE.test(n.data) || HIRA.test(n.data)))
+        spans[0].insertBefore(prev, spans[0].firstChild);
+      n.parentNode.replaceChild(frag, n);
+    });
+    // the last phrase is short (「す。」「OK。」): join it to the one before
+    const all = el.querySelectorAll(".ws");
+    const last = all[all.length - 1], before = all[all.length - 2];
+    if (last && before && len(last.textContent) < 4 && last.previousSibling === before && len(el.textContent) > 8) {
+      while (last.firstChild) before.appendChild(last.firstChild);
+      last.remove();
+    }
+  });
+})();
 </script>
 </body>
 </html>

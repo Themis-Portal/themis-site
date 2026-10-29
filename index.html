@@ -182,29 +182,27 @@ section { padding: 76px 0 100px; position: relative; }
 .pay b { font-size: 34px; }
 .pay small, .pay-ex small { font: 800 .5em var(--jp); margin: 0 .15em; color: var(--text); -webkit-text-fill-color: var(--text); }
 .pay-ex { margin: 16px 0 0; }
-.pay-ex ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
-.pay-ex b.wrap2 { white-space: normal; }
-.pay-ex b.wrap2 span { white-space: nowrap; }
-.pay-ex li { padding: 18px 22px; border-radius: var(--radius); border: 1px dashed rgba(255,95,174,.5); background: rgba(22,18,31,.6); }
-.pay-ex em { font: 700 12px var(--ui); font-style: normal; color: #fff; background: var(--vio); border-radius: 999px; padding: 2px 10px; }
-.pay-ex b { display: block; font-size: 30px; margin: 10px 0 4px; }
-.pay-ex li > span { display: block; font-size: 14.5px; color: var(--muted); text-align: justify; text-justify: inter-character; line-break: strict; }
+.pay-ex ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-rows: auto auto; gap: 0 16px; }
+.pay-ex li { display: grid; grid-row: span 2; grid-template-rows: subgrid; grid-template-columns: auto 1fr; align-items: center; gap: 8px 16px; padding: 16px 22px; border-radius: var(--radius); border: 1px dashed rgba(255,95,174,.5); background: rgba(22,18,31,.6); }
+.pay-ex em { grid-column: 1; justify-self: start; min-width: 82px; text-align: center; box-sizing: border-box; font: 700 12px var(--ui); font-style: normal; color: #fff; background: var(--vio); border-radius: 999px; padding: 2px 10px; }
+.pay-ex b { grid-column: 2; justify-self: start; display: block; font-size: 30px; margin: 0; }
+.pay-ex .pay-s { display: none; }
+.pay-ex li > span { grid-column: 1 / -1; display: block; font-size: 14.5px; color: var(--muted); text-align: justify; text-justify: inter-character; line-break: strict; }
 .pay-note { margin: 10px 0 0; font-size: 12.5px; color: var(--muted); text-align: right; }
-@media (min-width: 721px) {
-  .pay { align-items: center; }
-  .pay-ex li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; }
-  .pay-ex b { margin: 6px 0 0; }
-  .pay-ex li > span { flex: 1; min-width: 12em; margin-top: 6px; }
-}
+@media (min-width: 721px) { .pay { align-items: center; } }
 @media (max-width: 720px) {
   .pay { padding: 8px 10px; margin-top: 12px; }
   .pay-k { font-size: 11px; }
   .pay b { font-size: 25px; }
-  .pay-ex ul { gap: 10px; }
-  .pay-ex li { padding: 12px 12px; }
+  .pay-ex ul { gap: 0 10px; grid-template-rows: auto auto auto; }
+  .pay-ex li { grid-row: span 3; grid-template-columns: minmax(0,1fr); row-gap: 0; padding: 12px 12px; }
+  .pay-ex em, .pay-ex b, .pay-ex li > span { grid-column: 1; }
+  .pay-ex .pay-l { display: none; }
+  .pay-ex .pay-s { display: inline; }
   .pay-ex em { font-size: 10.5px; padding: 1px 8px; }
-  .pay-ex b { font-size: 20px; margin: 8px 0 2px; }
+  .pay-ex b { font-size: 26px; margin: 8px 0 2px; }
   .pay-ex li > span { font-size: 12.5px; line-height: 1.6; }
+  .pay-ex li > span .ph { display: block; }
   .pay-note { font-size: 11px; text-align: left; }
 }
 .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 44px; counter-reset: step; }
@@ -669,6 +667,12 @@ img { -webkit-user-drag: none; }
   .phone .w { opacity: 1; }
   .line path:first-child { stroke-dashoffset: 0; }
 }
+.ph { white-space: nowrap; }
+@media (max-width: 720px) { .card h3 .ph { display: block; } }
+@media (max-width: 400px) { .g4 .card h3 { font-size: 14px; } }
+.ws { display: inline-block !important; font: inherit !important; color: inherit !important; letter-spacing: inherit !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; width: auto !important; position: static !important; }
+.kw { white-space: nowrap !important; display: inline !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; }
+.tail { white-space: nowrap !important; display: inline !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; }
 </style>
 </head>
 <body>
@@ -751,13 +755,13 @@ img { -webkit-user-drag: none; }
       <div class="sec-hd rv">
         <p class="en">Concept</p>
         <h2>育てる。送り出す。振り返る。<br>そして、広げる。</h2>
-        <p>Themis（テーミス）は、人を育てることから始まる会社です。スタッフが育てば、お店の売上が上がる。売上が上がれば、新しい仕事がまた増える。この循環を、現場の実績とフィードバックで回していきます。</p>
+        <p>Themis（テーミス）は、人を育てることから始まる会社です。スタッフが育てば、お店の売上が上がる。売上が上がれば、新しい仕事がまた増える。実績とフィードバックで、この循環を回していきます。</p>
       </div>
       <ol class="cycle">
         <li class="rv" style="--d:0s"><em>01</em><b>育てる</b><span>先輩と<span class="nw">1対1</span>の研修で、現場の力を付ける</span></li>
         <li class="rv" style="--d:.15s"><em>02</em><b>送り出す</b><span>関東・東北の店舗やイベントで活躍する</span></li>
-        <li class="rv" style="--d:.3s"><em>03</em><b>振り返る</b><span>実績をもとにフィードバックし、次の目標を決める</span></li>
-        <li class="rv" style="--d:.45s"><em>04</em><b>広げる</b><span>案件を広げ、次のリーダーや独立も応援する</span></li>
+        <li class="rv" style="--d:.3s"><em>03</em><b>振り返る</b><span>実績をもとに話し合い、次の目標を決める</span></li>
+        <li class="rv" style="--d:.45s"><em>04</em><b>広げる</b><span>案件を広げ、リーダーや独立も応援する</span></li>
       </ol>
     </div>
   </section>
@@ -773,23 +777,23 @@ img { -webkit-user-drag: none; }
       <div class="grid g4">
         <div class="card rv" style="--d:0s">
           <span class="num">01</span>
-          <h3>お客様と、向き合う</h3>
-          <p>店頭やイベントで、お客様と直接話す対面の営業。顔を合わせて信頼を作る力を、一番大切にしています。</p>
+          <h3><span class="ph">お客様と、</span><span class="ph">向き合う</span></h3>
+          <p>店頭やイベントで、お客様と直接話す営業。顔を合わせて信頼を作る力を大切にします。</p>
         </div>
         <div class="card rv" style="--d:.1s">
           <span class="num">02</span>
-          <h3>管理まで、自分たちで</h3>
-          <p>シフト・勤怠・実績の管理は自社で行うので、初めての人は販売に集中できます。上を目指す人は、管理する側にも挑戦できます。</p>
+          <h3><span class="ph">管理まで、</span><span class="ph">自分たちで</span></h3>
+          <p>管理は自社で行うので、まずは販売に集中。上を目指す人は、管理にも挑戦できます。</p>
         </div>
         <div class="card rv" style="--d:.2s">
           <span class="num">03</span>
-          <h3>案件を、自社で持つ</h3>
-          <p>案件を自社で持っているから、働く場所を自分たちで選び、広げていけます。</p>
+          <h3><span class="ph">案件を、</span><span class="ph">自社で持つ</span></h3>
+          <p>案件を自社で持っているので、働く場所を自分たちで選んで広げられます。</p>
         </div>
         <div class="card rv" style="--d:.3s">
           <span class="num">04</span>
-          <h3>会社を、一緒に</h3>
-          <p>働き方も仕組みも、現場の声から決めていきます。スタッフ一人ひとりが、会社を作る仲間です。</p>
+          <h3><span class="ph">会社を、</span><span class="ph">一緒に</span></h3>
+          <p>働き方も仕組みも、現場の声で決めます。一人ひとりが、会社を作る仲間です。</p>
         </div>
       </div>
     </div>
@@ -807,21 +811,21 @@ img { -webkit-user-drag: none; }
           <svg class="ill phone" viewBox="0 0 160 110" aria-hidden="true"><rect x="62" y="18" width="36" height="72" rx="7"/><path d="M75 82h10"/><path class="w w1" d="M106 40a16 16 0 0 1 0 28"/><path class="w w2" d="M114 32a28 28 0 0 1 0 44"/><path class="w w3" d="M122 24a40 40 0 0 1 0 60"/><path class="w w1" d="M54 40a16 16 0 0 0 0 28"/><path class="w w2" d="M46 32a28 28 0 0 0 0 44"/><path class="w w3" d="M38 24a40 40 0 0 0 0 60"/></svg>
           <span class="no">01</span>
           <h3>携帯販売の営業代行</h3>
-          <p>キャリアショップ・家電量販店の携帯売り場で、接客と契約の獲得を行います。</p>
+          <p>携帯ショップ・量販店の売り場で、接客から契約の獲得まで行います。</p>
           <div class="tags"><span>キャリアショップ</span><span>家電量販店</span></div>
         </div>
         <div class="card biz rv" style="--d:.1s">
           <svg class="ill event" viewBox="0 0 160 110" aria-hidden="true"><path d="M30 92h100"/><path d="M44 92V52l36-22 36 22v40"/><path d="M44 52h72"/><path d="M66 92V70h28v22"/><path class="flag f1" d="M80 30V12l14 5-14 5"/><path class="flag f2" d="M44 52V36l11 4-11 4"/><path class="flag f3" d="M116 52V36l11 4-11 4"/></svg>
           <span class="no">02</span>
           <h3>イベント・催事</h3>
-          <p>ショッピングモールなどのイベント・催事で、声掛けから契約までを担当します。</p>
+          <p>モールや店頭のイベント・催事で、声掛けから契約までを担当します。</p>
           <div class="tags"><span>イベント</span><span>催事</span></div>
         </div>
         <div class="card biz rv" style="--d:.2s">
           <svg class="ill line" viewBox="0 0 160 110" aria-hidden="true"><path d="M18 78h40l10-18 12 30 12-46 10 34h40"/><circle class="dot" cx="18" cy="78" r="4"/><path class="bolt" d="M120 20l-12 22h12l-8 20"/></svg>
           <span class="no">03</span>
           <h3>光回線・電気</h3>
-          <p>インターネット回線や電気の契約、オプションなどの副商材も併せてご提案します。</p>
+          <p>光回線や電気の契約、オプションなどの副商材も一緒にご提案します。</p>
           <div class="tags"><span>光回線</span><span>電気</span><span>オプション</span></div>
         </div>
         <div class="card biz rv" style="--d:.3s">
@@ -851,7 +855,7 @@ img { -webkit-user-drag: none; }
         <div class="card rv">
           <span class="num">02</span>
           <h3>動きが、見える</h3>
-          <p>勤怠・シフト・稼働実績は、自社の専用アプリで毎日記録。急なお休みや困ったときも運営がすぐにフォローでき、取引先へのご報告も早く正確です。実績はスタッフへのフィードバックにも使い、次の成果につなげます。</p>
+          <p>勤怠や実績を専用アプリで毎日記録。困ったときもすぐフォローでき、実績はフィードバックにも使います。</p>
         </div>
         <div class="card rv">
           <span class="num">03</span>
@@ -880,33 +884,33 @@ img { -webkit-user-drag: none; }
       <div class="grid g2 styles">
         <div class="card rv">
           <span class="tag">週末スタッフ</span>
-          <h3>土日を中心に、シフト希望を出して働く</h3>
-          <p>平日は他の仕事や学校、週末は携帯販売。副業として始めることもできます。</p>
+          <h3><span class="ph">土日を中心に、</span><span class="ph">シフト希望で働く</span></h3>
+          <p>平日は仕事や学校、週末は携帯販売。副業でも始められます。</p>
           <div class="pay"><span class="pay-k">未経験の報酬</span><b><small>1日</small>12,000<small>円〜</small></b></div>
-          <ul class="checks"><li>週末だけでもOK</li><li>毎月のシフト希望で働く日を決められる</li><li>未経験は研修からスタート</li></ul>
+          <ul class="checks"><li>週末だけでもOK</li><li>シフトは希望制</li><li>未経験は研修から</li></ul>
         </div>
         <div class="card rv">
           <span class="tag">常勤スタッフ</span>
-          <h3>決まった店舗で、しっかり稼ぐ</h3>
-          <p>店舗が決めるシフトで、腰を据えて働きます。経験を積んで、成果に応じて報酬アップを目指せます。</p>
+          <h3><span class="ph">決まった店舗で、</span><span class="ph">しっかり稼ぐ</span></h3>
+          <p>店舗のシフトで腰を据えて働き、成果で報酬アップも目指せます。</p>
           <div class="pay"><span class="pay-k">未経験の報酬</span><b><small>月</small>280,000<small>円〜</small></b></div>
-          <ul class="checks"><li>経験者歓迎（年数は問いません）</li><li>成長に応じて報酬アップ</li><li>キャリアアップ・独立の相談もできる</li></ul>
+          <ul class="checks"><li>経験者歓迎</li><li>成果で報酬アップ</li><li>独立も相談できる</li></ul>
         </div>
       </div>
       <div class="pay-ex rv">
         <ul>
-          <li><em>常勤・半年</em><b><small>月</small>350,000<small>円</small></b><span>未経験から半年で、この報酬になった人もいます。</span></li>
-          <li><em>経験者</em><b class="wrap2"><small>月</small><span>400,000〜</span><span>600,000<small>円</small></span></b><span>経験を活かして、この報酬の人もいます。</span></li>
+          <li><em>常勤・半年</em><b><small>月</small><span class="pay-l">350,000</span><span class="pay-s">35<small>万</small></span><small>円</small></b><span><span class="ph">未経験から半年で、</span><span class="ph">この報酬になった</span><span class="ph">人もいます。</span></span></li>
+          <li><em>経験者</em><b><small>月</small><span class="pay-l">400,000〜600,000</span><span class="pay-s">40〜60<small>万</small></span><small>円</small></b><span><span class="ph">経験を活かして、</span><span class="ph">この報酬になった</span><span class="ph">人もいます。</span></span></li>
         </ul>
         <p class="pay-note">※報酬は、経験・現場・働いた日数によって変わります。</p>
       </div>
       <h3 class="sub rv">自分のペースで、上を目指せる。</h3>
       <p class="sub-lead rv">最初は販売だけでOK。管理や独立は、目指したい人だけが挑戦できます。<br>研修を受けるとポイントが貯まるので、学びながら稼げます。</p>
       <ol class="ladder">
-        <li class="rv" style="--d:0s"><em>STEP 1</em><b>学ぶ</b><span>先輩とオンラインで<span class="nw">1対1</span>。現場の基本から学べて、受けるたびにポイントも貯まります。</span></li>
-        <li class="rv" style="--d:.12s"><em>STEP 2</em><b>売る</b><span>店頭やイベントで、お客様と向き合って販売。成果を出すほど報酬がアップします。</span></li>
-        <li class="rv" style="--d:.24s"><em>STEP 3</em><b>率いる</b><span>リーダーとして現場と仲間を管理。後輩に研修をすると、教える側にもポイントが入ります。</span></li>
-        <li class="rv" style="--d:.36s"><em>STEP 4</em><b>独立する</b><span>自分の事業へ。事業計画・営業のノウハウ・人脈作りまで、新しい挑戦を会社が支援します。</span></li>
+        <li class="rv" style="--d:0s"><em>STEP 1</em><b>学ぶ</b><span>オンラインで先輩と<span class="nw">1対1</span>。基本から学べて、受けるたびにポイントが入ります。</span></li>
+        <li class="rv" style="--d:.12s"><em>STEP 2</em><b>売る</b><span>店頭やイベントで、お客様と向き合って販売。成果で報酬もアップします。</span></li>
+        <li class="rv" style="--d:.24s"><em>STEP 3</em><b>率いる</b><span>リーダーとして現場と仲間を管理。後輩に教えると、自分にもポイントが入ります。</span></li>
+        <li class="rv" style="--d:.36s"><em>STEP 4</em><b>独立する</b><span>自分の事業へ。事業計画から人脈作りまで、会社が挑戦を支援します。</span></li>
       </ol>
     </div>
   </section>
@@ -921,11 +925,11 @@ img { -webkit-user-drag: none; }
           <div class="app-badge"><img src="img/portal-icon-192.png" alt="Themis Portal のアイコン" width="64" height="64" loading="lazy" decoding="async"><div><b>Themis <i>PORTAL</i></b><span>スタッフ専用アプリ ・ iPhone / Android</span></div></div>
         </div>
         <div class="feats">
-          <div class="feat rv" style="--d:0s"><b>打刻はワンタップ</b><span>出勤・退勤もシフトの希望も、アプリからすぐ。</span></div>
+          <div class="feat rv" style="--d:0s"><b>打刻はワンタップ</b><span>出勤・退勤もシフト希望も、アプリで。</span></div>
           <div class="feat rv" style="--d:.08s"><b>請求書もアプリで</b><span>働いた記録から作って、そのまま提出。</span></div>
           <div class="feat rv" style="--d:.16s"><b>研修でポイントも</b><span>予約して受けると、ポイントがもらえる。</span></div>
           <div class="feat rv" style="--d:.24s"><b>ありがとうが報酬に</b><span>仲間と送り合って、ポイントがたまる。</span></div>
-          <div class="feat rv" style="--d:.32s"><b>自分の成長が見える</b><span>出勤日数やもらったありがとうを、マイページで。</span></div>
+          <div class="feat rv" style="--d:.32s"><b>自分の成長が見える</b><span>出勤やありがとうの数を、マイページで。</span></div>
           <div class="feat rv" style="--d:.4s"><b>お知らせ・相談も</b><span>会社からの連絡も、困ったときの相談も。</span></div>
         </div>
       </div>
@@ -982,9 +986,9 @@ img { -webkit-user-drag: none; }
       <div class="faq grid g2">
         <div class="rv">
           <p class="faq-for">働きたい方</p>
-          <details><summary>未経験でも大丈夫ですか？</summary><p>はい。研修で、接客の基本やプランの説明の仕方から学べます。分からないことは先輩に<span class="nw">1対1</span>で聞けます。最初は販売に集中できます。</p></details>
+          <details><summary>未経験でも大丈夫ですか？</summary><p>はい。研修で、接客の基本やプランの説明から学べます。分からないことは先輩に<span class="nw">1対1</span>で聞けます。</p></details>
           <details><summary>週末だけでも働けますか？</summary><p>はい。毎月シフトの希望を出して、働く日を決められます。平日に他の仕事をしている人もいます。</p></details>
-          <details><summary>どこで働きますか？</summary><p>関東・東北の携帯キャリアショップ、家電量販店、イベント会場などです。お住まいの近くを中心にご相談します。</p></details>
+          <details><summary>どこで働きますか？</summary><p>関東・東北のキャリアショップ、家電量販店、イベント会場などです。お住まいの近くでご相談します。</p></details>
         </div>
         <div class="rv">
           <p class="faq-for">企業の方</p>
@@ -1231,6 +1235,61 @@ document.querySelectorAll(".count").forEach(el => {
   const o = new IntersectionObserver(es => { if (es[0].isIntersecting) { run(); o.disconnect(); } });
   o.observe(el);
 });
+</script>
+<script>
+// Japanese text breaks only between phrases (文節): 「平日は／仕事や学校、／週末は／携帯販売。」
+// Each phrase becomes an inline-block, so a word like 週末 or スタッフ is never cut, and the last line never has only 1-2 characters.
+(() => {
+  const SEL = "main p, main li, main td, main dd, main h2, main h3, main summary, main .note, main .fact span, .cycle span, .ladder span, .feat span, .feat b, .flow span, .flow b, .pay-ex li > span";
+  const seg = window.Intl && Intl.Segmenter ? new Intl.Segmenter("ja", { granularity: "word" }) : null;
+  const END = /[、。・，．！？」』）〕】：]$/;          // a phrase ends after these
+  const OPEN = /[「『（〔【]$/;                       // these stay with the next word
+  const GLUE = /^[、。・，．！？」』）〕】：ー〜ぁぃぅぇぉっゃゅょ]/; // these never start a line
+  const HIRA = /^[ぁ-ゖ]/, HIRA_END = /[ぁ-ゖ]$/;
+  const split = text => {
+    const words = seg ? [...seg.segment(text)].map(s => s.segment) : [...text];
+    for (let i = words.length - 2; i >= 0; i--) if (/^[ごお]$/.test(words[i])) words.splice(i, 2, words[i] + words[i + 1]); // ご提案: ご stays with the next word
+    const out = [];
+    for (const w of words) {
+      if (!out.length) { out.push(w); continue; }
+      const p = out[out.length - 1];
+      let join;
+      if (/^\s+$/.test(w) || /\s$/.test(p)) join = true;
+      else if (OPEN.test(p) || GLUE.test(w) || /[」』）]$/.test(p) && /^[ぁ-ゖ]{1,2}$/.test(w)) join = true;
+      else if (/^[ごお][一-龠]/.test(w)) join = !END.test(p) && !HIRA_END.test(p);
+      else if (END.test(p)) join = false;
+      else if (HIRA.test(w)) join = w.length <= 3 || !/^[ぁ-ゖ]+$/.test(w); // short particles and endings stay with the word before; ありがとう starts a new phrase
+      else join = !HIRA_END.test(p);               // a new word after a particle starts a new phrase; 携帯+販売 stay together
+      if (join) out[out.length - 1] += w; else out.push(w);
+    }
+    return out;
+  };
+  const len = s => [...s.replace(/\s/g, "")].length;
+  document.querySelectorAll(SEL).forEach(el => {
+    if (el.closest("svg, .hp, .ws") || el.querySelector(".ws")) return;
+    const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [];
+    for (let n; n = tw.nextNode();) if (n.data.trim() && !n.parentElement.closest(".nw, .ph, .ws, svg")) nodes.push(n);
+    nodes.forEach(n => {
+      const parts = split(n.data), frag = document.createDocumentFragment();
+      const spans = parts.map(t => {
+        if (!t.trim()) { frag.appendChild(document.createTextNode(t)); return null; }
+        const s = document.createElement("span"); s.className = "ws"; s.textContent = t; frag.appendChild(s); return s;
+      }).filter(Boolean);
+      // 「の研修で」 right after <span>1対1</span>: keep it with that element
+      const prev = n.previousSibling;
+      if (spans.length && prev && prev.nodeType === 1 && prev.tagName !== "BR" && !prev.classList.contains("ws") && (GLUE.test(n.data) || HIRA.test(n.data)))
+        spans[0].insertBefore(prev, spans[0].firstChild);
+      n.parentNode.replaceChild(frag, n);
+    });
+    // the last phrase is short (「す。」「OK。」): join it to the one before
+    const all = el.querySelectorAll(".ws");
+    const last = all[all.length - 1], before = all[all.length - 2];
+    if (last && before && len(last.textContent) < 4 && last.previousSibling === before && len(el.textContent) > 8) {
+      while (last.firstChild) before.appendChild(last.firstChild);
+      last.remove();
+    }
+  });
+})();
 </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>株式会社Themis（テーミス）｜携帯販売の営業代行・スタッフ募集（関東・東北）</title>
-<meta name="description" content="株式会社Themis（テーミス）は、関東・東北のキャリアショップ・家電量販店・イベントへ営業スタッフを送る、携帯販売の営業代行の会社です。研修制度で未経験から育て、週末だけでもOKのスタッフも募集しています。">
+<meta name="description" content="株式会社Themis（テーミス）は、関東・東北のキャリアショップ・家電量販店・イベントへ営業スタッフを送る、携帯販売の営業代行の会社です。研修制度で未経験から育てます。スタッフ募集中（週末だけでもOK・未経験で報酬1日12,000円〜）">
 <link rel="canonical" href="https://themis-inc.com/">
 <meta name="theme-color" content="#0c0a12">
 <meta property="og:type" content="website">
@@ -175,6 +175,38 @@ section { padding: 76px 0 100px; position: relative; }
 .checks li { padding-left: 26px; position: relative; }
 .checks li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 12px; height: 7px; border-left: 2px solid var(--mint); border-bottom: 2px solid var(--mint); transform: rotate(-45deg); }
 .light .checks li::before { border-color: var(--vio); }
+/* pay (報酬の目安と実例) */
+.pay { margin: 16px 0 0; padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(155,107,255,.45); background: linear-gradient(120deg, rgba(155,107,255,.18), rgba(255,95,174,.12)); display: flex; align-items: baseline; justify-content: space-between; gap: 6px 12px; flex-wrap: wrap; }
+.pay-k { font: 700 13px var(--ui); color: var(--vio2); letter-spacing: .04em; }
+.pay b, .pay-ex b { font-family: var(--en); font-weight: 400; letter-spacing: .02em; line-height: 1.1; white-space: nowrap; background: linear-gradient(90deg, var(--vio2), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pay b { font-size: 34px; }
+.pay small, .pay-ex small { font: 800 .5em var(--jp); margin: 0 .15em; color: var(--text); -webkit-text-fill-color: var(--text); }
+.pay-ex { margin: 16px 0 0; }
+.pay-ex ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
+.pay-ex b.wrap2 { white-space: normal; }
+.pay-ex b.wrap2 span { white-space: nowrap; }
+.pay-ex li { padding: 18px 22px; border-radius: var(--radius); border: 1px dashed rgba(255,95,174,.5); background: rgba(22,18,31,.6); }
+.pay-ex em { font: 700 12px var(--ui); font-style: normal; color: #fff; background: var(--vio); border-radius: 999px; padding: 2px 10px; }
+.pay-ex b { display: block; font-size: 30px; margin: 10px 0 4px; }
+.pay-ex li > span { display: block; font-size: 14.5px; color: var(--muted); text-align: justify; text-justify: inter-character; line-break: strict; }
+.pay-note { margin: 10px 0 0; font-size: 12.5px; color: var(--muted); text-align: right; }
+@media (min-width: 721px) {
+  .pay { align-items: center; }
+  .pay-ex li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; }
+  .pay-ex b { margin: 6px 0 0; }
+  .pay-ex li > span { flex: 1; min-width: 12em; margin-top: 6px; }
+}
+@media (max-width: 720px) {
+  .pay { padding: 8px 10px; margin-top: 12px; }
+  .pay-k { font-size: 11px; }
+  .pay b { font-size: 25px; }
+  .pay-ex ul { gap: 10px; }
+  .pay-ex li { padding: 12px 12px; }
+  .pay-ex em { font-size: 10.5px; padding: 1px 8px; }
+  .pay-ex b { font-size: 20px; margin: 8px 0 2px; }
+  .pay-ex li > span { font-size: 12.5px; line-height: 1.6; }
+  .pay-note { font-size: 11px; text-align: left; }
+}
 .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 44px; counter-reset: step; }
 .flow li { list-style: none; position: relative; padding: 0 14px; text-align: center; }
 .flow li::before { counter-increment: step; content: counter(step); display: grid; place-items: center; width: 52px; height: 52px; margin: 0 auto 12px; border-radius: 50%; background: var(--vio); color: #fff; font: 400 22px var(--en); position: relative; z-index: 1; box-shadow: 3px 3px 0 var(--pink); }
@@ -850,14 +882,23 @@ img { -webkit-user-drag: none; }
           <span class="tag">週末スタッフ</span>
           <h3>土日を中心に、シフト希望を出して働く</h3>
           <p>平日は他の仕事や学校、週末は携帯販売。副業として始めることもできます。</p>
+          <div class="pay"><span class="pay-k">未経験の報酬</span><b><small>1日</small>12,000<small>円〜</small></b></div>
           <ul class="checks"><li>週末だけでもOK</li><li>毎月のシフト希望で働く日を決められる</li><li>未経験は研修からスタート</li></ul>
         </div>
         <div class="card rv">
           <span class="tag">常勤スタッフ</span>
           <h3>決まった店舗で、しっかり稼ぐ</h3>
           <p>店舗が決めるシフトで、腰を据えて働きます。経験を積んで、成果に応じて報酬アップを目指せます。</p>
+          <div class="pay"><span class="pay-k">未経験の報酬</span><b><small>月</small>280,000<small>円〜</small></b></div>
           <ul class="checks"><li>経験者歓迎（年数は問いません）</li><li>成長に応じて報酬アップ</li><li>キャリアアップ・独立の相談もできる</li></ul>
         </div>
+      </div>
+      <div class="pay-ex rv">
+        <ul>
+          <li><em>常勤・半年</em><b><small>月</small>350,000<small>円</small></b><span>未経験から半年で、この報酬になった人もいます。</span></li>
+          <li><em>経験者</em><b class="wrap2"><small>月</small><span>400,000〜</span><span>600,000<small>円</small></span></b><span>経験を活かして、この報酬の人もいます。</span></li>
+        </ul>
+        <p class="pay-note">※報酬は、経験・現場・働いた日数によって変わります。</p>
       </div>
       <h3 class="sub rv">自分のペースで、上を目指せる。</h3>
       <p class="sub-lead rv">最初は販売だけでOK。管理や独立は、目指したい人だけが挑戦できます。<br>研修を受けるとポイントが貯まるので、学びながら稼げます。</p>

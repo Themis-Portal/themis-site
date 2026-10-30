@@ -186,7 +186,7 @@ section { padding: 76px 0 100px; position: relative; }
 .pay-ex li { display: grid; grid-row: span 2; grid-template-rows: subgrid; grid-template-columns: auto 1fr; align-items: center; gap: 8px 16px; padding: 16px 22px; border-radius: var(--radius); border: 1px dashed rgba(255,95,174,.5); background: rgba(22,18,31,.6); }
 .pay-ex em { grid-column: 1; justify-self: start; min-width: 82px; text-align: center; box-sizing: border-box; font: 700 12px var(--ui); font-style: normal; color: #fff; background: var(--vio); border-radius: 999px; padding: 2px 10px; }
 .pay-ex b { grid-column: 2; justify-self: start; display: block; font-size: 30px; margin: 0; }
-.pay-ex .pay-s { display: none; }
+.pay .pay-s, .pay-ex .pay-s { display: none; }
 .pay-ex li > span { grid-column: 1 / -1; display: block; font-size: 14.5px; color: var(--muted); text-align: justify; text-justify: inter-character; line-break: strict; }
 .pay-note { margin: 10px 0 0; font-size: 12.5px; color: var(--muted); text-align: right; }
 @media (min-width: 721px) { .pay { align-items: center; } }
@@ -197,8 +197,8 @@ section { padding: 76px 0 100px; position: relative; }
   .pay-ex ul { gap: 0 10px; grid-template-rows: auto auto auto; }
   .pay-ex li { grid-row: span 3; grid-template-columns: minmax(0,1fr); row-gap: 0; padding: 12px 12px; }
   .pay-ex em, .pay-ex b, .pay-ex li > span { grid-column: 1; }
-  .pay-ex .pay-l { display: none; }
-  .pay-ex .pay-s { display: inline; }
+  .pay .pay-l, .pay-ex .pay-l { display: none; }
+  .pay .pay-s, .pay-ex .pay-s { display: inline; }
   .pay-ex em { font-size: 10.5px; padding: 1px 8px; }
   .pay-ex b { font-size: 26px; margin: 8px 0 2px; }
   .pay-ex li > span { font-size: 12.5px; line-height: 1.6; }
@@ -886,21 +886,21 @@ img { -webkit-user-drag: none; }
           <span class="tag">週末スタッフ</span>
           <h3><span class="ph">土日を中心に、</span><span class="ph">シフト希望で働く</span></h3>
           <p>平日は仕事や学校、週末は携帯販売。副業でも始められます。</p>
-          <div class="pay"><span class="pay-k">未経験の報酬</span><b><small>1日</small>12,000<small>円〜</small></b></div>
+          <div class="pay"><span class="pay-k">未経験の報酬</span><b><small>1日</small><span class="pay-l">12,000<small>円〜</small></span><span class="pay-s">1.2<small>万円〜</small></span></b></div>
           <ul class="checks"><li>週末だけでもOK</li><li>シフトは希望制</li><li>未経験は研修から</li></ul>
         </div>
         <div class="card rv">
           <span class="tag">常勤スタッフ</span>
           <h3><span class="ph">決まった店舗で、</span><span class="ph">しっかり稼ぐ</span></h3>
           <p>店舗のシフトで腰を据えて働き、成果で報酬アップも目指せます。</p>
-          <div class="pay"><span class="pay-k">未経験の報酬</span><b><small>月</small>280,000<small>円〜</small></b></div>
+          <div class="pay"><span class="pay-k">未経験の報酬</span><b><small>月</small><span class="pay-l">280,000<small>円〜</small></span><span class="pay-s">28<small>万円〜</small></span></b></div>
           <ul class="checks"><li>経験者歓迎</li><li>成果で報酬アップ</li><li>独立も相談できる</li></ul>
         </div>
       </div>
       <div class="pay-ex rv">
         <ul>
-          <li><em>常勤・半年</em><b><small>月</small><span class="pay-l">350,000</span><span class="pay-s">35<small>万</small></span><small>円</small></b><span><span class="ph">未経験から半年で、</span><span class="ph">この報酬になった</span><span class="ph">人もいます。</span></span></li>
-          <li><em>経験者</em><b><small>月</small><span class="pay-l">400,000〜600,000</span><span class="pay-s">40〜60<small>万</small></span><small>円</small></b><span><span class="ph">経験を活かして、</span><span class="ph">この報酬になった</span><span class="ph">人もいます。</span></span></li>
+          <li><em>常勤・半年</em><b><small>月</small><span class="pay-l">350,000<small>円</small></span><span class="pay-s">35<small>万円</small></span></b><span><span class="ph">未経験から半年で、</span><span class="ph">この報酬になった</span><span class="ph">人もいます。</span></span></li>
+          <li><em>経験者</em><b><small>月</small><span class="pay-l">400,000〜600,000<small>円</small></span><span class="pay-s">40〜60<small>万円</small></span></b><span><span class="ph">経験を活かして、</span><span class="ph">この報酬になった</span><span class="ph">人もいます。</span></span></li>
         </ul>
         <p class="pay-note">※報酬は、経験・現場・働いた日数によって変わります。</p>
       </div>
